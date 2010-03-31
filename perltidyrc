@@ -1,0 +1,10 @@
+# .perltidyrc
+
+
+-sbl    # sub braces left
+-bar    # braces right otherwise
+-ce     # cuddled elses
+-i=4    # explicit tab size
+-pt=2   # really tight containers
+# -sot    # stack opening tokens
+# -sct    # stack closing tokens
