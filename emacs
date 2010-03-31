@@ -70,34 +70,6 @@
 (setq-default c-basic-offset 4)
 (setq c-default-style "k&r")
 
-;; Stuff for finding tag files by recurring up the directory tree
-(defun jds-find-tags-file ()
-  "recursively searches each parent directory for a file named
-`tags' and returns the path to that file or nil if a tags file is
-not found. Returns nil if the buffer is not visiting a file"
-  (labels
-      ((find-tags-file-r (path)
-                         (let* ((parent (file-name-directory path))
-                                (possible-tags-file (concat parent "tags")))
-                           (cond
-                            ((file-exists-p possible-tags-file) (throw 'found-it possible-tags-file))
-                            ((string= "/tags" possible-tags-file) (error "no tags file found"))
-                            (t (find-tags-file-r (directory-file-name parent)))))))
-
-    (if (buffer-file-name)
-        (catch 'found-it
-          (find-tags-file-r (buffer-file-name)))
-      (error "buffer is not visiting a file"))))
-
-(defun jds-set-tags-file-path ()
-  "calls `jds-find-tags-file' to recursively search up the
-directory tree to find a file named `tags'. If found, calls
-`vtags-set-tags-file' with that path as an argument otherwise
-raises an error."
-  (interactive)
-  (vtags-set-tagfile (jds-find-tags-file)))
-
-
 ;; PDE (Perl) Bindings
 (add-to-list 'load-path "~/elisp/pde/lisp")
 (load "pde-load")
@@ -122,25 +94,11 @@ raises an error."
                              "~/org/home.org"
                              ))
 
-
-;; Processing mode
-;; (add-to-list 'load-path "/path/to/processing-emacs/") ;; don't need
-(autoload 'processing-mode "processing-mode" "Processing mode" t)
-(add-to-list 'auto-mode-alist '("\\.pde$" . processing-mode))
-(setq processing-location "/opt/processing-1.0.3")
-
 ;; Python Mode
 (setq auto-mode-alist (cons '("\\.py$" . python-mode) auto-mode-alist))
 (setq interpreter-mode-alist (cons '("python" . python-mode)
 				   interpreter-mode-alist))
 (autoload 'python-mode "python-mode" "Python editing mode." t)
-
-
-;; ;; SLIME Mode (lisp, clisp)
-;; (add-to-list 'load-path "~/elisp/slime/") ; your SLIME directory
-;; (setq inferior-lisp-program "/usr/bin/clisp") ; your Lisp system
-;; (require 'slime)
-;; (slime-setup)
 
 ;; RPM Spec Mode
 (autoload 'rpm-spec-mode "rpm-spec-mode.el" "RPM spec mode." t)
@@ -161,20 +119,10 @@ raises an error."
 ;; VHDL Mode
 (add-to-list 'load-path "~/elisp/vhdl-mode")
 
-;; Git Mode
-(add-to-list 'load-path "~/elisp/git")
-(require 'git)
-(autoload 'git-blame-mode "git-blame"
-  "Minor mode for incremental blame for Git." t)
-
-;; Gnus configuration
-(add-to-list 'load-path "~/.gnus")
-
 ;; haskell stuff
 (add-hook 'haskell-mode-hook 'turn-on-haskell-ghci)
 (require 'inf-haskell)
 (setq haskell-program-name (executable-find "ghci"))
-
 
 ;;; This was installed by package-install.el.
 ;;; This provides support for the package system and
