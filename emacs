@@ -1,6 +1,8 @@
-;; dotemacs.el
+;; emacs
 ;; written by Paul Mantz
-;; customization for the consummate Perl-programming polyglot
+;;
+;; Emacs customization for the consummate Perl-programming polyglot.
+;; Written for Emacs 23+.
 
 ; Emacs server start
 (server-start)
@@ -18,6 +20,16 @@
 ;;prints the full path to the minibuffer
 (defun msg-buffer-filename() (interactive)
   (message (buffer-file-name)))
+
+;;; This was installed by package-install.el.
+;;; This provides support for the package system and
+;;; interfacing with ELPA, the package archive.
+;;; Move this code earlier if you want to reference
+;;; packages in your .emacs.
+(when
+    (load
+     (expand-file-name "~/.emacs.d/elpa/package.el"))
+  (package-initialize))
 
 ;; bind C-c C-l (think of as lookup) to rgrep
 (global-set-key [(control ?c) (control ?l)] 'rgrep)
@@ -124,12 +136,3 @@
 (require 'inf-haskell)
 (setq haskell-program-name (executable-find "ghci"))
 
-;;; This was installed by package-install.el.
-;;; This provides support for the package system and
-;;; interfacing with ELPA, the package archive.
-;;; Move this code earlier if you want to reference
-;;; packages in your .emacs.
-(when
-    (load
-     (expand-file-name "~/.emacs.d/elpa/package.el"))
-  (package-initialize))
