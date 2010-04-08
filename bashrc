@@ -96,3 +96,8 @@ fi
 if [ -f /etc/bash_completion ]; then
     . /etc/bash_completion
 fi
+
+# set up shell to use perlbrew if it exists
+if [ -d ~/perl5/perlbrew ]; then
+    source ~/perl5/perlbrew/etc/bashrc
+fi
