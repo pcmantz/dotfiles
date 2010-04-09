@@ -1,6 +1,6 @@
 # .perltidyrc
 
-
+-l=79   # line length
 -sbl    # sub braces left
 -bar    # braces right otherwise
 -ce     # cuddled elses
