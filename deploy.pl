@@ -17,13 +17,14 @@ my %Overrides = ();
 my $dir = abs_path dirname $0;
 my $dh = DirHandle->new($dir);
 
-sub set_up_symlink {
+sub set_up_symlink
+{
     my ($target) = @_;
     my $link = %Overrides{$target} // "~/.$target";
 
     unlink $link if -e $link;
-    eval { symlink $target, $link; } 
-      or do {say "error: $!";};
+    eval { symlink $target, $link; }
+      or do { croak "error: $!"; };
 }
 
 while ($dh->read) {
