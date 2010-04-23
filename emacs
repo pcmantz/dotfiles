@@ -10,9 +10,9 @@
 ;; Add local lisp folder to load-path
 (add-to-list 'load-path "~/elisp")
 
-;; Basic configuration stuff
-(global-font-lock-mode 1)
-(setq fill-column 78)
+;; enable global syntax highlighting
+(require 'font-lock)
+(global-font-lock-mode t)
 
 ;;answer with y or n instead of yes or no
 (defalias 'yes-or-no-p 'y-or-n-p)
@@ -83,13 +83,16 @@
 (setq c-default-style "k&r")
 
 ;; PDE (Perl) Bindings
-(add-to-list 'load-path "~/elisp/pde/lisp")
+(add-to-list 'load-path "~/elisp/emacs-pde/lisp")
 (load "pde-load")
-(defalias 'perl-mode 'cperl-mode)
 
-;; the following are more trouble than they're worth
+;; CPerl configuration
+(defalias 'perl-mode 'cperl-mode)
 (setq cperl-electric-keywords nil)
 (setq cperl-auto-newline nil)
+(cperl-set-style "BSD")
+(setq cperl-indent-parens-as-block t
+      cperl-close-paren-offset -4)
 
 ;; org-mode: productivity lists!  (bonus: see if you can plug bugzilla
 ;; into this bitch)
@@ -129,9 +132,10 @@
 (add-hook 'twitter-status-edit-mode-hook 'longlines-mode)
 
 ;; VHDL Mode
-(add-to-list 'load-path "~/elisp/vhdl-mode")
+;; (add-to-list 'load-path "~/elisp/vhdl-mode")
 
 ;; haskell stuff
+(add-to-list 'load-path "~/elisp/haskell-mode")
 (add-hook 'haskell-mode-hook 'turn-on-haskell-ghci)
 (require 'inf-haskell)
 (setq haskell-program-name (executable-find "ghci"))
