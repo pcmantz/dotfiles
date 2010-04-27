@@ -8,7 +8,11 @@
 
 require 5.010_000;
 
+use Env qw/ $HOME /;
 use Cwd qw/abs_path/;
+use feature qw/ say /;
+use Carp qw/ cluck croak /;
+
 use DirHandle;
 use File::Basename;
 
@@ -19,22 +23,24 @@ my $dh = DirHandle->new($dir);
 
 sub set_up_symlink
 {
-    my ($target) = @_;
-    my $link = %Overrides{$target} // "~/.$target";
+    my ($file) = @_;
+    my $target = "$dir/$file";
+    my $link   = "$HOME/.$file";
 
+    say "symlink $link -> $target";
     unlink $link if -e $link;
-    eval { symlink $target, $link; }
-      or do { croak "error: $!"; };
+    eval { symlink $target, $link; 1 }
+      || do { croak "error: $!"; };
 }
 
-while ($dh->read) {
+while ( my $file = $dh->read) {
 
     # set up ignores
-    next if $_ eq '.git';
-    next if $_ eq 'deploy.pl';
-    next if $_ =~ m{~$};
-    next if $_ =~ m{^#};
+    next if $file =~ m{^\.};
+    next if $file =~ m{~$};
+    next if $file =~ m{^#};
+    next if $file eq 'deploy.pl';
 
     # create the symlink if it passes the file checks
-    set_up_symlink($_);
+    set_up_symlink($file);
 }
