@@ -1,0 +1,35 @@
+#
+# gitconfig
+#
+# ini for git
+#
+
+[user]
+        name = Paul C. Mantz
+        email = pcmantz@gmail.com
+        editor = ect
+     
+[color]
+        diff = auto
+        status = auto
+        branch = auto
+        interactive = auto
+        ui = true
+        pager = true
+
+[core]
+        excludesfile = ~/.gitignore
+
+[alias]
+        co = checkout
+        ci = commit
+        st = status
+        br = branch
+        df = diff
+        fp = format-patch
+        
+        # lg = log -p  ## lol what?
+        who = shortlog -s --
+
+        whois = "!sh -c 'git log -i -1 --pretty=\"format:%an <%ae>\n\" --author =\"$1\"' -"
+        whatis = show -s --pretty='tformat:%h (%s, %ad)' --date=short
