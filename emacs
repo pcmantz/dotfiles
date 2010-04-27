@@ -90,7 +90,6 @@
 (defalias 'perl-mode 'cperl-mode)
 (setq cperl-electric-keywords nil)
 (setq cperl-auto-newline nil)
-(cperl-set-style "BSD")
 (setq cperl-indent-parens-as-block t
       cperl-close-paren-offset -4)
 
