@@ -101,3 +101,8 @@ fi
 if [ -d ~/perl5/perlbrew ]; then
     source ~/perl5/perlbrew/etc/bashrc
 fi
+
+# set up local bash config info
+if [ -f ~/.bashrc.local ]; then
+    source ~/.bashrc.local
+fi
