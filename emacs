@@ -7,8 +7,9 @@
 ; Emacs server start
 (server-start)
 
-;; Add local lisp folder to load-path
+;; Add user lisp folders to load-path
 (add-to-list 'load-path "~/elisp")
+(add-to-list 'load-path "~/.emacs.d")
 
 ;; enable global syntax highlighting
 (require 'font-lock)
@@ -83,7 +84,7 @@
 (setq c-default-style "k&r")
 
 ;; PDE (Perl) Bindings
-(add-to-list 'load-path "~/elisp/emacs-pde/lisp")
+(add-to-list 'load-path "~/emacs.d/pde")
 (load "pde-load")
 
 ;; CPerl configuration
@@ -138,4 +139,3 @@
 (add-hook 'haskell-mode-hook 'turn-on-haskell-ghci)
 (require 'inf-haskell)
 (setq haskell-program-name (executable-find "ghci"))
-
