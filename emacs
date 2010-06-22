@@ -84,7 +84,7 @@
 (setq c-default-style "k&r")
 
 ;; PDE (Perl) Bindings
-(add-to-list 'load-path "~/emacs.d/pde")
+(add-to-list 'load-path "~/.emacs.d/pde")
 (load "pde-load")
 
 ;; CPerl configuration
