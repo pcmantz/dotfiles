@@ -1,9 +1,9 @@
 # .perltidyrc
 
+-pbp    # follow perl best practices
 -l=79   # line length
--sbl    # sub braces left
--bar    # braces right otherwise
 -ce     # cuddled elses
+-bar    # braces right
 -i=4    # explicit tab size
 -pt=2   # really tight containers
 # -sot    # stack opening tokens
