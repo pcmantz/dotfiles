@@ -7,15 +7,18 @@
 ; Emacs server start
 (server-start)
 
-;; Add user lisp folders to load-path
-(add-to-list 'load-path "~/elisp")
-(add-to-list 'load-path "~/.emacs.d")
+;;
+;; useful functions
+;;
+
+;;
+;; global configuration
+;;
 
 ;; enable global syntax highlighting
 (require 'font-lock)
 (global-font-lock-mode t)
 
-;;answer with y or n instead of yes or no
 (defalias 'yes-or-no-p 'y-or-n-p)
 
 ;;prints the full path to the minibuffer
@@ -32,26 +35,9 @@
      (expand-file-name "~/.emacs.d/elpa/package.el"))
   (package-initialize))
 
-;; bind C-c C-l (think of as lookup) to rgrep
-(global-set-key [(control ?c) (control ?l)] 'rgrep)
+;; built-in package configuration
 
-;; NOTE: this is going to get me in trouble.  quit it.
-;; set +x on all files that begin with '#!'
-;; (add-hook 'after-save-hook
-;;           '(lambda ()
-;;              (progn
-;;                (and (save-excursion
-;;                       (save-restriction
-;;                         (widen)
-;;                         (goto-char (point-min))
-;;                         (save-match-data
-;;                           (looking-at "^#!"))))
-;;                     (shell-command (concat "chmod u+x "
-;; 					   buffer-file-name))
-;;                     (message (concat "Saved as script: "
-;; 				     buffer-file-name))))))
-
-; Uniquify: unique buffer names
+; uniquify: unique buffer names
 (require 'uniquify)
 (setq uniquify-buffer-name-style 'reverse)
 (setq uniquify-separator "|")
@@ -79,7 +65,7 @@
      (expand-file-name "~/.emacs.d/elpa/package.el"))
   (package-initialize))
 
-;; C stuff.  Still trying to figure this out.
+;; cc-mode
 (setq-default c-basic-offset 4)
 (setq c-default-style "k&r")
 
@@ -102,40 +88,11 @@
 (define-key global-map "\C-ca" 'org-agenda)
 (setq org-log-done t)
 
-(setq org-agenda-files (list "~/org/zmanda/amanda.org"
-                             "~/org/zmanda/benefits.org"
-                             "~/org/finances.org"
-                             "~/org/emacs.org"
-                             "~/org/home.org"
-                             ))
+(setq org-agenda-files (list
+                        "~/org/emacs.org"
+                        "~/org/home.org"
+                        ))
 
-;; Python Mode
-(setq auto-mode-alist (cons '("\\.py$" . python-mode) auto-mode-alist))
-(setq interpreter-mode-alist (cons '("python" . python-mode)
-				   interpreter-mode-alist))
-(autoload 'python-mode "python-mode" "Python editing mode." t)
-
-;; RPM Spec Mode
-(autoload 'rpm-spec-mode "rpm-spec-mode.el" "RPM spec mode." t)
-(setq auto-mode-alist (append '(("\\.spec" . rpm-spec-mode))
-                              auto-mode-alist))
-
-;; Relax NG Compact Mode
-(autoload 'rnc-mode "rnc-mode")
-(setq auto-mode-alist
-      (cons '("\\.rnc\\'" . rnc-mode) auto-mode-alist))
-
-;; Twitter Mode
-(autoload 'twitter-get-friends-timeline "twitter" nil t)
-(autoload 'twitter-status-edit "twitter" nil t)
-(global-set-key "\C-xt" 'twitter-get-friends-timeline)
-(add-hook 'twitter-status-edit-mode-hook 'longlines-mode)
-
-;; VHDL Mode
-;; (add-to-list 'load-path "~/elisp/vhdl-mode")
-
-;; haskell stuff
-(add-to-list 'load-path "~/elisp/haskell-mode")
-(add-hook 'haskell-mode-hook 'turn-on-haskell-ghci)
-(require 'inf-haskell)
-(setq haskell-program-name (executable-find "ghci"))
+;; Add user lisp folders to load-path
+(add-to-list 'load-path "~/elisp")
+(add-to-list 'load-path "~/.emacs.d")
