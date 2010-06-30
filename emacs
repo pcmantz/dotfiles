@@ -47,18 +47,19 @@
 
 ;; cperl-mode
 (require 'cperl-mode)
+(add-to-list 'auto-mode-alist '("\\.t$" . cperl-mode))
 (mapc
  (lambda (pair)
    (if (eq (cdr pair) 'perl-mode)
        (setcdr pair 'cperl-mode)))
  (append auto-mode-alist interpreter-mode-alist))
 
-(add-to-list 'auto-mode-alist '("\\.t$" . cperl-mode))
-
 (setq cperl-electric-keywords nil)
 (setq cperl-auto-newline nil)
-(setq cperl-indent-parens-as-block t
-      cperl-close-paren-offset -4)
+(setq cperl-indent-parens-as-block  t
+      cperl-tab-always-indent       t
+      cperl-indent-level            4
+      cperl-close-paren-offset     -4)
 
 ;; org-mode
 (require 'org-install)
