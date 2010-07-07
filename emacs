@@ -23,6 +23,8 @@
 
 (defalias 'yes-or-no-p 'y-or-n-p)
 
+(menu-bar-mode -1)
+
 ;;
 ;; built-in package configuration
 ;;
