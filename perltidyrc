@@ -1,6 +1,9 @@
 # .perltidyrc
 
--pbp    # follow perl best practices
+-pbp    # follow perl best practices.
+
+-nst    # no standard output.  breaks scripting otherwise.
+
 -l=79   # line length
 -ce     # cuddled elses
 -bar    # braces right
