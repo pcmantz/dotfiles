@@ -11,8 +11,11 @@
 ;; useful functions
 ;;
 
-(defun msg-buffer-filename() (interactive)
+(defun msg-buffer-filename () (interactive)
   (message (buffer-file-name)))
+
+(defun untabify-buffer () (interactive)
+  (untabify (point-min) (point-max)))
 
 ;;
 ;; global configuration
@@ -20,10 +23,23 @@
 
 (require 'font-lock)
 (global-font-lock-mode t)
+(setq font-lock-maximum-decoration t)
 
 (defalias 'yes-or-no-p 'y-or-n-p)
 
-(menu-bar-mode -1)
+(menu-bar-mode nil)
+(tool-bar-mode nil)
+
+(column-number-mode t)
+(show-paren-mode t)
+
+;;
+;; appearance for graphical mode
+;;
+(when window-system
+  (set-foreground-color "white")
+  (set-background-color "black")
+  (set-cursor-color "green"))
 
 ;;
 ;; built-in package configuration
