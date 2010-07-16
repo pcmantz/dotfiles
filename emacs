@@ -26,12 +26,12 @@
 (setq font-lock-maximum-decoration t)
 
 (defalias 'yes-or-no-p 'y-or-n-p)
-
 (menu-bar-mode nil)
 (tool-bar-mode nil)
 
 (column-number-mode t)
 (show-paren-mode t)
+(transient-mark-mode t)
 
 ;;
 ;; appearance for graphical mode
