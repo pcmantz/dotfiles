@@ -28,6 +28,7 @@
 (defalias 'yes-or-no-p 'y-or-n-p)
 (menu-bar-mode nil)
 (tool-bar-mode nil)
+(scroll-bar-mode nil)
 
 (column-number-mode t)
 (show-paren-mode t)
