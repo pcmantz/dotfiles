@@ -33,5 +33,6 @@ export GIT_EDITOR="mg"
 
 # perl aliases
 alias lperl="perl -Ilib"
-# alias lperl="perl -Mlocal::lib -Ilib"
-# alias lcpan=" eval $(perl -Mlocal::lib=~/perl5) && cpan"
+export LLIB_ENV=`perl -Mlocal::lib`
+# alias lperl="`${LLIB_ENV}` && perl -Ilib"
+# alias lcpan="`${LLIB_ENV}` && cpan"
