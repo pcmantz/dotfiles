@@ -21,7 +21,6 @@ alias la='ls -A'
 alias l='ls -CF'
 
 # emacs aliases
-export EMACSLOADPATH=~/elisp:~/.emacs.d:${EMACSLOADPATH}
 alias e="emacs"
 alias ec="emacsclient"
 alias enw="emacs -nw"
