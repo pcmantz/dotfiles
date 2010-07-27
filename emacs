@@ -34,6 +34,8 @@
 (show-paren-mode t)
 (transient-mark-mode t)
 
+(setq-default fill-column 78)
+
 ;;
 ;; appearance for graphical mode
 ;;
