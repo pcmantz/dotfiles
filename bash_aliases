@@ -1,7 +1,7 @@
 #!/bin/bash
 # ~/.bash_aliases
 
-export PATH=~/bin:${PATH}
+export PATH=~/bin:~/perl5/bin:${PATH}
 
 # enable color support of ls and also add handy aliases
 if [ -x /usr/bin/dircolors ]; then

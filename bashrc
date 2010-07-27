@@ -16,8 +16,6 @@ export HISTCONTROL=ignoreboth
 # append to the history file, don't overwrite it
 shopt -s histappend
 
-# for setting history length see HISTSIZE and HISTFILESIZE in bash(1)
-
 # check the window size after each command and, if necessary, update
 # the values of LINES and COLUMNS.
 shopt -s checkwinsize
@@ -41,12 +39,12 @@ force_color_prompt=yes
 
 if [ -n "$force_color_prompt" ]; then
     if [ -x /usr/bin/tput ] && tput setaf 1 >&/dev/null; then
-	# We have color support; assume it's compliant with Ecma-48
-	# (ISO/IEC-6429). (Lack of such support is extremely rare, and
-	# such a case would tend to support setf rather than setaf.)
-	color_prompt=yes
+        # We have color support; assume it's compliant with Ecma-48
+        # (ISO/IEC-6429). (Lack of such support is extremely rare, and
+        # such a case would tend to support setf rather than setaf.)
+        color_prompt=yes
     else
-	color_prompt=
+        color_prompt=
     fi
 fi
 
@@ -66,18 +64,14 @@ xterm*|rxvt*)
     ;;
 esac
 
-# extended aliases, mostly editing and environment variables.  Note
-# that for this to use dotfiles, there has to be a separate symlink at
-# ~/.bash_aliases to $REPO/bash_aliases .
-if [ -f ~/.bash_aliases ]; then
-    . ~/.bash_aliases
+# set up local bash config info
+if [ -f ~/.bashrc.local ]; then
+    source ~/.bashrc.local
 fi
 
-# enable programmable completion features (you don't need to enable
-# this, if it's already enabled in /etc/bash.bashrc and /etc/profile
-# sources /etc/bash.bashrc).
+# enable programmable completion features if they exist
 if [ -f /etc/bash_completion ]; then
-    . /etc/bash_completion
+    source /etc/bash_completion
 fi
 
 # set up shell to use perlbrew if it exists
@@ -85,7 +79,33 @@ if [ -d ~/perl5/perlbrew ]; then
     source ~/perl5/perlbrew/etc/bashrc
 fi
 
-# set up local bash config info
-if [ -f ~/.bashrc.local ]; then
-    source ~/.bashrc.local
+# aliases and variable definitions
+if [ -f ~/.bash_aliases ]; then
+    source ~/.bash_aliases
 fi
+
+#
+# helpful functions
+#
+
+function extract()       # Handy Extract Program.
+{
+    if [ -f $1 ] ; then
+        case $1 in
+            *.tar.bz2)   tar xvjf $1     ;;
+            *.tar.gz)    tar xvzf $1     ;;
+            *.bz2)       bunzip2 $1      ;;
+            *.rar)       unrar x $1      ;;
+            *.gz)        gunzip $1       ;;
+            *.tar)       tar xvf $1      ;;
+            *.tbz2)      tar xvjf $1     ;;
+            *.tgz)       tar xvzf $1     ;;
+            *.zip)       unzip $1        ;;
+            *.Z)         uncompress $1   ;;
+            *.7z)        7z x $1         ;;
+            *)           echo "'$1' cannot be extracted via >extract<" ;;
+         esac
+    else
+        echo "'$1' is not a valid file"
+    fi
+}
