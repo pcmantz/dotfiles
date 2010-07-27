@@ -1,13 +1,15 @@
 # .perltidyrc
 
--pbp    # follow perl best practices.
+-l=78   # line length
+-i=4    # explicit tab size
+-ci=2   # continuation (broken line) indentation.
 
--nst    # no standard output.  breaks scripting otherwise.
-
--l=79   # line length
 -ce     # cuddled elses
 -bar    # braces right
--i=4    # explicit tab size
 -pt=2   # really tight containers
-# -sot    # stack opening tokens
-# -sct    # stack closing tokens
+
+-nsfs   # no space for semicolon in for loops
+
+# perltidy's recommendations for symbol breaks.
+-wbb="% + - * / x != == >= <= =~ !~ < > | & = # **= += *= &= <<= &&= -= /=
+-|= >>= ||= //= .= %= ^= x="
