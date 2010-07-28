@@ -11,5 +11,4 @@
 -nsfs   # no space for semicolon in for loops
 
 # perltidy's recommendations for symbol breaks.
--wbb="% + - * / x != == >= <= =~ !~ < > | & = # **= += *= &= <<= &&= -= /=
--|= >>= ||= //= .= %= ^= x="
+-wbb="% + - * / x != == >= <= =~ !~ < > | & = # **= += *= &= <<= &&= -= /= -|= >>= ||= //= .= %= ^= x="
