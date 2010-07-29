@@ -26,9 +26,10 @@
 (setq font-lock-maximum-decoration t)
 
 (defalias 'yes-or-no-p 'y-or-n-p)
-(menu-bar-mode nil)
-(tool-bar-mode nil)
-(scroll-bar-mode nil)
+
+(setq menu-bar-mode nil)
+(setq tool-bar-mode nil)
+(setq scroll-bar-mode nil)
 
 (column-number-mode t)
 (show-paren-mode t)
