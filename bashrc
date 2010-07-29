@@ -64,9 +64,9 @@ xterm*|rxvt*)
     ;;
 esac
 
-# set up local bash config info
-if [ -f ~/.bashrc.local ]; then
-    source ~/.bashrc.local
+# aliases and variable definitions
+if [ -f ~/.bash_aliases ]; then
+    source ~/.bash_aliases
 fi
 
 # enable programmable completion features if they exist
@@ -74,14 +74,30 @@ if [ -f /etc/bash_completion ]; then
     source /etc/bash_completion
 fi
 
-# set up shell to use perlbrew if it exists
-if [ -d ~/perl5/perlbrew ]; then
-    source ~/perl5/perlbrew/etc/bashrc
+# set up local environment
+if [ -f ~/.bashrc.local ]; then
+    source ~/.bashrc.local
 fi
 
-# aliases and variable definitions
-if [ -f ~/.bash_aliases ]; then
-    source ~/.bash_aliases
+#
+# Only run the following code once.  Elsewise, it's going to completely wreck
+# my path and look ugly, especially since I have a habit of nesting shells.
+#
+
+if [ -z $BASHRC_DONE ]; then
+
+    # set up path-local bash config info
+    if [ -f ~/.bashrc.path-local ]; then
+        source ~/.bashrc.path-local
+    fi
+
+    # set up shell to use perlbrew if it exists
+    if [ -d ~/perl5/perlbrew ]; then
+        source ~/perl5/perlbrew/etc/bashrc
+    fi
+
+    export PATH=~/bin:~/perl5/bin:${PATH}
+    export BASHRC_DONE=TRUE
 fi
 
 #
