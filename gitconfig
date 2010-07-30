@@ -8,7 +8,7 @@
         name = Paul C. Mantz
         email = pcmantz@gmail.com
         editor = ect
-     
+
 [color]
         diff = auto
         status = auto
@@ -25,9 +25,11 @@
         ci = commit
         st = status
         br = branch
-        df = diff
+        d  = diff
+        dc = diff --cached
         fp = format-patch
-        
+        rmt = remote
+
         # lg = log -p  ## lol what?
         who = shortlog -s --
 
