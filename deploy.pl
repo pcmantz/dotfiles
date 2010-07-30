@@ -6,11 +6,10 @@
 # deploys the set of config files to their proper locations in a new
 # home directory
 
-require 5.010_000;
+use feature ':5.10';
 
 use Env qw/ $HOME /;
 use Cwd qw/abs_path/;
-use feature qw/ say /;
 use Carp qw/ cluck croak /;
 
 use DirHandle;
@@ -21,8 +20,8 @@ my %Overrides = ();
 my $dir = abs_path dirname $0;
 my $dh = DirHandle->new($dir);
 
-sub set_up_symlink
-{
+sub set_up_symlink {
+
     my ($file) = @_;
     my $target = "$dir/$file";
     my $link   = "$HOME/.$file";
@@ -33,7 +32,7 @@ sub set_up_symlink
       || do { croak "error: $!"; };
 }
 
-while ( my $file = $dh->read) {
+while (my $file = $dh->read) {
 
     # set up ignores
     next if $file =~ m{^\.};
