@@ -18,6 +18,24 @@
   (untabify (point-min) (point-max)))
 
 ;;
+;; include additional libraries
+;;
+
+;; include all the subdirectories found in ~/elisp
+(if (fboundp 'normal-top-level-add-subdirs-to-load-path)
+        (let* ((my-lisp-dir "~/elisp/")
+              (default-directory my-lisp-dir))
+           (setq load-path (cons my-lisp-dir load-path))
+           (normal-top-level-add-subdirs-to-load-path)))
+
+;; Add user lisp folders to load-path
+(add-to-list 'load-path "~/elisp")
+(add-to-list 'load-path "~/.emacs.d")
+
+(if (file-exists-p "~/elisp/init.el")
+    (load-file "~/elisp/init.el"))
+
+;;
 ;; global configuration
 ;;
 
@@ -99,6 +117,3 @@
 ;; Other user configuration paths
 ;;
 
-;; Add user lisp folders to load-path
-(add-to-list 'load-path "~/elisp")
-(add-to-list 'load-path "~/.emacs.d")
