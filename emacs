@@ -23,14 +23,18 @@
 
 ;; include all the subdirectories found in ~/elisp
 (if (fboundp 'normal-top-level-add-subdirs-to-load-path)
-        (let* ((my-lisp-dir "~/elisp/")
-              (default-directory my-lisp-dir))
-           (setq load-path (cons my-lisp-dir load-path))
-           (normal-top-level-add-subdirs-to-load-path)))
+    (let* ((my-lisp-dir "~/elisp/")
+           (default-directory my-lisp-dir))
+      (setq load-path (cons my-lisp-dir load-path))
+      (normal-top-level-add-subdirs-to-load-path)
+      (byte-recompile-directory my-lisp-dir 0)))
+
 
 ;; Add user lisp folders to load-path
 (add-to-list 'load-path "~/elisp")
 (add-to-list 'load-path "~/.emacs.d")
+
+(byte-recompile-directory "~/elisp")
 
 (if (file-exists-p "~/elisp/init.el")
     (load-file "~/elisp/init.el"))
