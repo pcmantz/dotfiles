@@ -18,28 +18,6 @@
   (untabify (point-min) (point-max)))
 
 ;;
-;; include additional libraries
-;;
-
-;; include all the subdirectories found in ~/elisp
-(if (fboundp 'normal-top-level-add-subdirs-to-load-path)
-    (let* ((my-lisp-dir "~/elisp/")
-           (default-directory my-lisp-dir))
-      (setq load-path (cons my-lisp-dir load-path))
-      (normal-top-level-add-subdirs-to-load-path)
-      (byte-recompile-directory my-lisp-dir 0)))
-
-
-;; Add user lisp folders to load-path
-(add-to-list 'load-path "~/elisp")
-(add-to-list 'load-path "~/.emacs.d")
-
-(byte-recompile-directory "~/elisp")
-
-(if (file-exists-p "~/elisp/init.el")
-    (load-file "~/elisp/init.el"))
-
-;;
 ;; global configuration
 ;;
 
@@ -58,6 +36,10 @@
 (transient-mark-mode t)
 
 (setq-default fill-column 78)
+
+;; use these variables in other modes to control tabbing
+(setq-default indent-tabs-mode nil)
+(setq tab-width 4)
 
 ;;
 ;; appearance for graphical mode
@@ -86,7 +68,7 @@
 (global-set-key (kbd "C-x C-b") 'ibuffer-other-window)
 
 ;; cc-mode
-(setq-default c-basic-offset 4)
+(setq c-basic-offset tab-width)
 (setq c-default-style "k&r")
 
 ;; cperl-mode
@@ -102,8 +84,8 @@
 (setq cperl-auto-newline nil)
 (setq cperl-indent-parens-as-block  t
       cperl-tab-always-indent       t
-      cperl-indent-level            4
-      cperl-close-paren-offset     -4)
+      cperl-indent-level           tab-width
+      cperl-close-paren-offset     (- tab-width))
 
 ;; org-mode
 (require 'org-install)
@@ -118,6 +100,22 @@
                         ))
 
 ;;
-;; Other user configuration paths
+;; include additional libraries
 ;;
 
+;; include all the subdirectories found in ~/elisp
+(if (fboundp 'normal-top-level-add-subdirs-to-load-path)
+    (let* ((my-lisp-dir "~/elisp/")
+           (default-directory my-lisp-dir))
+      (setq load-path (cons my-lisp-dir load-path))
+      (normal-top-level-add-subdirs-to-load-path)
+      (byte-recompile-directory my-lisp-dir 0)))
+
+;; Add user lisp folders to load-path
+(add-to-list 'load-path "~/elisp")
+(add-to-list 'load-path "~/.emacs.d")
+
+(byte-recompile-directory "~/elisp")
+
+(if (file-exists-p "~/elisp/init.el")
+    (load-file "~/elisp/init.el"))
