@@ -82,8 +82,8 @@
 
 (setq cperl-electric-keywords nil)
 (setq cperl-auto-newline nil)
-(setq cperl-indent-parens-as-block  t
-      cperl-tab-always-indent       t
+(setq cperl-indent-parens-as-block t
+      cperl-tab-always-indent      t
       cperl-indent-level           tab-width
       cperl-close-paren-offset     (- tab-width))
 
@@ -96,8 +96,7 @@
 
 (setq org-agenda-files (list
                         "~/org/emacs.org"
-                        "~/org/home.org"
-                        ))
+                        "~/org/home.org"))
 
 ;;
 ;; include additional libraries
