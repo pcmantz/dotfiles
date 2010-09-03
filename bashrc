@@ -96,7 +96,7 @@ if [ -z $BASHRC_DONE ]; then
         source ~/perl5/perlbrew/etc/bashrc
     fi
 
-    export PATH=~/bin:~/perl5/bin:${PATH}
+    export PATH=~/bin:${PATH}
     export BASHRC_DONE=TRUE
 fi
 
