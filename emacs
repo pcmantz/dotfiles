@@ -41,6 +41,9 @@
 (setq-default indent-tabs-mode nil)
 (setq tab-width 4)
 
+;; unbind C-z so I stop accidentally stopping emacs
+(define-key global-map (kbd "C-z") nil)
+
 ;;
 ;; appearance for graphical mode
 ;;
