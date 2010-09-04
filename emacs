@@ -86,7 +86,6 @@
 (setq cperl-electric-keywords nil)
 (setq cperl-auto-newline nil)
 (setq cperl-indent-parens-as-block t
-      cperl-tab-always-indent      t
       cperl-indent-level           tab-width
       cperl-close-paren-offset     (- tab-width))
 
