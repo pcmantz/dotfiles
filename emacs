@@ -1,3 +1,4 @@
+;; -*- mode: Emacs-Lisp -*-
 ;; emacs
 ;; written by Paul Mantz
 ;;
