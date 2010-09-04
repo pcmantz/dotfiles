@@ -48,6 +48,9 @@
 (setq inhibit-startup-message t)
 (setq initial-scratch-message nil)
 
+;;keybindings for common functions
+(define-key global-map (kbd "C-x r") 'revert-buffer)
+
 ;;
 ;; appearance for graphical mode
 ;;
