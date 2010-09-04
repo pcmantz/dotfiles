@@ -27,9 +27,9 @@
 
 (defalias 'yes-or-no-p 'y-or-n-p)
 
-(setq menu-bar-mode nil)
-(setq tool-bar-mode nil)
-(setq scroll-bar-mode nil)
+(menu-bar-mode nil)
+(tool-bar-mode nil)
+(scroll-bar-mode nil)
 
 (column-number-mode t)
 (show-paren-mode t)
