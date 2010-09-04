@@ -45,6 +45,9 @@
 ;; unbind C-z so I stop accidentally stopping emacs
 (define-key global-map (kbd "C-z") nil)
 
+(setq inhibit-startup-message t)
+(setq initial-scratch-message nil)
+
 ;;
 ;; appearance for graphical mode
 ;;
