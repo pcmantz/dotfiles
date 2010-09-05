@@ -109,6 +109,9 @@
 ;; include additional libraries
 ;;
 
+;; add ELPA or other program-added packages to the load path
+(add-to-list 'load-path "~/.emacs.d")
+
 ;; include all the subdirectories found in ~/elisp
 (if (fboundp 'normal-top-level-add-subdirs-to-load-path)
     (let* ((my-lisp-dir "~/elisp/")
@@ -117,11 +120,6 @@
       (normal-top-level-add-subdirs-to-load-path)
       (byte-recompile-directory my-lisp-dir 0)))
 
-;; Add user lisp folders to load-path
-(add-to-list 'load-path "~/elisp")
-(add-to-list 'load-path "~/.emacs.d")
-
-(byte-recompile-directory "~/elisp")
-
+;; initialize all the packages in the elisp directory
 (if (file-exists-p "~/elisp/init.el")
     (load-file "~/elisp/init.el"))
