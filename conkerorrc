@@ -1,0 +1,38 @@
+/* -*- Mode: JavaScript -*-
+ * conkerorrc
+ * written by Paul Mantz
+ */
+
+// Perl search strings
+define_webjump("cpan",    "http://search.cpan.org/search?query=%s&mode=all");
+define_webjump("perldoc", "http://perldoc.perl.org/search.html?q=%s");
+
+// Haskell search
+define_webjump("hoogle", "http://haskell.org/hoogle/?hoogle=%s",
+               $alternative = "http://haskell.org/hoogle/");
+
+// Duck Duck Go search
+define_webjump("ddg", "http://duckduckgo.com/?q=%s");
+
+// Wayback Machine
+define_webjump("wayback", function (url) {
+    if (url) {
+        return "http://web.archive.org/web/*/" + url;
+    } else {
+        return "javascript:window.location.href='http://web.archive.org/web/*/'+window.location.href;";
+    }
+}, $argument = "optional");
+
+// Down For Everyone or Just Me?
+define_webjump("down?", function (url) {
+    if (url) {
+        return "http://downforeveryoneorjustme.com/" + url;
+    } else {
+        return "javascript:window.location.href='http://downforeveryoneorjustme.com/'+window.location.href;";
+   }
+}, $argument = "optional");
+
+// Code Searches
+define_webjump("gh",        "http://github.com/search?q=%s&type=Everything");
+define_webjump("ohloh",     "https://www.ohloh.net/p?query=%s");
+define_webjump("gitorious", "http://gitorious.org/search?q=%s");
