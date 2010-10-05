@@ -135,8 +135,9 @@
 
 (custom-set-variables
  '(org-agenda-files (quote ("~/org/todo.org")))
+ '(org-agenda-include-diary t)
  '(org-default-notes-file "~/org/notes.org")
- '(org-agenda-ndays 7)
+ '(org-agenda-ndays 14)
  '(org-deadline-warning-days 14)
  '(org-agenda-show-all-dates t)
  '(org-agenda-skip-deadline-if-done t)
