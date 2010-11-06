@@ -49,7 +49,7 @@
 (define-key global-map (kbd "C-z") nil)   ;; don't accidentally stop emacs
 (define-key global-map (kbd "C-x r") 'revert-buffer)
 
-;; helpful aliases 
+;; helpful aliases
 (defalias 'qrr 'query-replace-regexp)
 
 ;;
@@ -97,6 +97,9 @@
       cperl-indent-level           tab-width
       cperl-close-paren-offset     (- tab-width))
 
+;; diff-mode
+(setq diff-switches "-u")
+
 ;; org-mode
 (require 'org-install)
 (add-to-list 'auto-mode-alist '("\\.org$" . org-mode))
@@ -107,9 +110,9 @@
 (eval-after-load "org"
   '(progn
      (define-prefix-command 'org-todo-state-map)
-     
+
      (define-key org-mode-map "\C-cx" 'org-todo-state-map)
-     
+
      (define-key org-todo-state-map "x"
        #'(lambda nil (interactive) (org-todo "CANCELLED")))
      (define-key org-todo-state-map "d"
