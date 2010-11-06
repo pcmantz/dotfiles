@@ -164,8 +164,8 @@
              (org-agenda-overriding-header "Unscheduled TODO entries: "))))))
  '(org-remember-store-without-prompt t)
  '(org-remember-templates
-   (quote ((116 "* TODO %?\n  %u" "~/org/todo.org" "Tasks")
-           (110 "* %u %?" "~/org/notes.org" "Notes"))))
+   '(("Todo" ?t "* TODO %?\n  %u" "~/org/todo.org"  "Tasks")
+     ("Note" ?n "* %u %?"         "~/org/notes.org" "Notes")))
  '(remember-annotation-functions (quote (org-remember-annotation)))
  '(remember-handler-functions (quote (org-remember-handler))))
 
