@@ -49,6 +49,9 @@
 (define-key global-map (kbd "C-z") nil)   ;; don't accidentally stop emacs
 (define-key global-map (kbd "C-x r") 'revert-buffer)
 
+;; helpful aliases 
+(defalias 'qrr 'query-replace-regexp)
+
 ;;
 ;; appearance for graphical mode
 ;;
