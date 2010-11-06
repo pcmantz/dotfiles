@@ -3,6 +3,9 @@
  * written by Paul Mantz
  */
 
+// open a link in the background
+define_key(content_buffer_normal_keymap, "d", "follow-new-buffer-background");
+
 // Perl search strings
 define_webjump("cpan",    "http://search.cpan.org/search?query=%s&mode=all");
 define_webjump("perldoc", "http://perldoc.perl.org/search.html?q=%s");
