@@ -59,7 +59,11 @@
 (when window-system
   (set-foreground-color "white")
   (set-background-color "black")
-  (set-cursor-color "green"))
+  (set-cursor-color "green")
+  (cond ((string= window-system "x") ;; X window system
+         (set-face-attribute 'default nil :font "Inconsolata-9"))
+        (t  ;; terminal mode
+         nil)))
 
 ;;
 ;; built-in package configuration
