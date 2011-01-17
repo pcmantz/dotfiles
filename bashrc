@@ -86,6 +86,11 @@ fi
 
 if [ -z $BASHRC_DONE ]; then
 
+    if [ -e ~/.clojure ]; then
+        export CLOJURE_EXT=~/.clojure
+        alias clj=clj-env-dir
+    fi
+
     # set up path-local bash config info
     if [ -f ~/.bashrc.path-local ]; then
         source ~/.bashrc.path-local
@@ -94,6 +99,11 @@ if [ -z $BASHRC_DONE ]; then
     # set up shell to use perlbrew if it exists
     if [ -d ~/perl5/perlbrew ]; then
         source ~/perl5/perlbrew/etc/bashrc
+    fi
+
+    # set up cabal scripts if present
+    if [ -e ~/.cabal/bin ]; then
+        export PATH=~/.cabal/bin:${PATH}
     fi
 
     export PATH=~/bin:${PATH}
