@@ -5,33 +5,52 @@
 #
 
 [user]
-        name = Paul C. Mantz
-        email = pcmantz@gmail.com
-        editor = ect
+    name   = Paul C. Mantz
+    email  = pcmantz@gmail.com
+    editor = ect
 
 [color]
-        diff = auto
-        status = auto
-        branch = auto
-        interactive = auto
-        ui = true
-        pager = true
+    diff        = auto
+    status      = auto
+    branch      = auto
+    interactive = auto
+    ui          = true
+    pager       = true
 
 [core]
-        excludesfile = ~/.gitignore
+    excludesfile = ~/.gitignore
 
 [alias]
-        co = checkout
-        ci = commit
-        st = status
-        br = branch
-        d  = diff
-        dc = diff --cached
-        fp = format-patch
-        rmt = remote
 
-        # lg = log -p  ## lol what?
-        who = shortlog -s --
+    # basic command shortcuts
+    st  = status
+    co  = checkout
+    br  = branch
+    fp  = format-patch
+    rmt = remote
 
-        whois = "!sh -c 'git log -i -1 --pretty=\"format:%an <%ae>\n\" --author =\"$1\"' -"
-        whatis = show -s --pretty='tformat:%h (%s, %ad)' --date=short
+    # add shortcuts
+    a  = add
+    ap = add --patch
+    ai = add --interactive
+
+    # commit shortcuts
+    ci = commit
+    ca = commit --amend
+
+    # diff shortcuts
+    d   = diff
+    dc  = diff --cached
+
+    # reset shortcuts
+    rs = reset --soft
+    rh = reset --hard
+
+    # rebase shortcuts
+    rb  = rebase
+    rbi = rebase --interactive
+    rbc = rebase --continue
+
+    who    = shortlog -s --
+    whois  = "!sh -c 'git log -i -1 --pretty=\"format:%an <%ae>\n\" --author =\"$1\"' -"
+    whatis = show -s --pretty='tformat:%h (%s, %ad)' --date=short
