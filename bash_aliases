@@ -14,9 +14,10 @@ if [ -x /usr/bin/dircolors ]; then
 fi
 
 # convenient ls aliases
+alias l='ls -CF'
 alias ll='ls -l'
 alias la='ls -A'
-alias l='ls -CF'
+alias lal='ls -Al'
 
 # emacs aliases
 alias e="emacs"
