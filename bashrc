@@ -69,14 +69,14 @@ if [ -f ~/.bash_aliases ]; then
     source ~/.bash_aliases
 fi
 
+# load some useful functions
+if [ -f ~/.bash_functions ]; then
+    source ~/.bash_functions
+fi
+
 # enable programmable completion features if they exist
 if [ -f /etc/bash_completion ]; then
     source /etc/bash_completion
-fi
-
-# set up local environment
-if [ -f ~/.bashrc.local ]; then
-    source ~/.bashrc.local
 fi
 
 #
@@ -86,29 +86,14 @@ fi
 
 if [ -z $BASHRC_DONE ]; then
 
-    if [ -e ~/.clojure ]; then
-        export CLOJURE_EXT=~/.clojure
-        alias clj=clj-env-dir
-    fi
-
-    # set up path-local bash config info
-    if [ -f ~/.bashrc.path-local ]; then
-        source ~/.bashrc.path-local
-    fi
-
-    # load some useful functions
-    if [ -e ~/.bash_functions ]; then
-        source ~/.bash_functions
-    fi
-
     # set up shell to use perlbrew if it exists
     if [ -d ~/perl5/perlbrew ]; then
         source ~/perl5/perlbrew/etc/bashrc
     fi
 
-    # set up cabal scripts if present
-    if [ -e ~/.cabal/bin ]; then
-        export PATH=~/.cabal/bin:${PATH}
+    # set up local environment
+    if [ -f ~/.bashrc.local ]; then
+        source ~/.bashrc.local
     fi
 
     export PATH=~/bin:${PATH}
