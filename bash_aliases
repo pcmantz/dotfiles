@@ -15,9 +15,10 @@ fi
 
 # convenient ls aliases
 alias l='ls -CF'
-alias ll='ls -l'
-alias la='ls -A'
-alias lal='ls -Al'
+alias ll='l -l'
+alias la='l -A'
+alias lal='l -Al'
+alias lalh='l -Alh'
 
 # emacs aliases
 alias e="emacs"
@@ -25,9 +26,13 @@ alias ec="emacsclient"
 alias enw="emacs -nw"
 alias ect="emacsclient -t"
 
+# perl aliases
+alias lperl="perl -Ilib"
+
+# common command aliases
+alias g="git"
+
 # editor commands
 export EDITOR="mg"
 export GIT_EDITOR="mg"
 
-# perl aliases
-alias lperl="perl -Ilib"
