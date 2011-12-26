@@ -2,12 +2,13 @@
 
 -l=78   # line length
 -i=4    # explicit tab size
--ci=2   # continuation (broken line) indentation.
+-ci=4   # continuation (broken line) indentation.
 
 -ce     # cuddled elses
 -bar    # braces right
 -pt=2   # really tight containers
 
+-nola   # don't outdent labels
 -nsfs   # no space for semicolon in for loops
 
 # perltidy's recommendations for symbol breaks.
