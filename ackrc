@@ -1,0 +1,4 @@
+# ackrc
+
+--type-set=pm=.pm,.pm6
+# --pager=less -r
