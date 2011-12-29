@@ -43,6 +43,8 @@ escape ^zz
 bind f eval "caption splitonly" "hardstatus ignore"
 bind F eval "caption always"    "hardstatus alwayslastline"
 
+bind g select # goto terminal
+
 # Remove some stupid / dangerous key bindings
 bind ^k
 bind ^L
