@@ -60,6 +60,9 @@ bind } history
 # TERMINAL SETTINGS
 # ------------------------------------------------------------------------------
 
+# When the heck am I not going to be using a 256 color terminal emulator?
+term screen-256color
+
 # The vt100 description does not mention "dl". *sigh*
 termcapinfo vt100 dl=5\E[M
 
