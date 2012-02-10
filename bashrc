@@ -86,10 +86,6 @@ fi
 
 if [ -z $BASHRC_DONE ]; then
 
-    # set up shell to use perlbrew if it exists
-    if [ -d ~/perl5/perlbrew ]; then
-        source ~/perl5/perlbrew/etc/bashrc
-    fi
 
     # set up local environment
     if [ -f ~/.bashrc.local ]; then
