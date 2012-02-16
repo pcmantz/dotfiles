@@ -102,5 +102,5 @@ termcapinfo xterm|xterms|xs|rxvt ti@:te@
 # screen -t daemon 9 tail -f /var/log/daemon.log
 
 # Local Variables: 
-# mode: Conf
-# End:
+# mode: conf-space 
+# End: 

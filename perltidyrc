@@ -13,3 +13,7 @@
 
 # perltidy's recommendations for symbol breaks.
 -wbb="% + - * / x != == >= <= =~ !~ < > | & = # **= += *= &= <<= &&= -= /= -|= >>= ||= //= .= %= ^= x="
+
+# Local Variables:
+# mode: conf-unix
+# End:
