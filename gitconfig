@@ -39,18 +39,27 @@
     ca = commit --amend
 
     # diff shortcuts
-    d   = diff
-    dc  = diff --cached
+    d   = diff --patience
+    dc  = diff --patience --cached
 
     # reset shortcuts
-    rs = reset --soft
-    rh = reset --hard
+    rss = reset --soft
+    rsm = reset --mixed
+    rsh = reset --hard
 
     # rebase shortcuts
     rb  = rebase
     rbi = rebase --interactive
     rbc = rebase --continue
 
+    # log shortcuts
+    lgo = log --graph --oneline
+
     who    = shortlog -s --
     whois  = "!sh -c 'git log -i -1 --pretty=\"format:%an <%ae>\n\" --author =\"$1\"' -"
     whatis = show -s --pretty='tformat:%h (%s, %ad)' --date=short
+
+
+# Local Variables:
+# mode: conf-unix
+# End:
