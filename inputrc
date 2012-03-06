@@ -1,0 +1,33 @@
+# ~/.inputrc
+
+# be explicit
+set editing-mode emacs
+set keymap emacs
+
+set bell-style visible
+
+# meta key stuff
+set enable-meta-key on
+set input-meta on
+set output-meta on
+
+# tab completion
+set disable-completion off
+set expand-tilde on
+set mark-directories on
+set mark-symlinked-directories off
+set visible-stats on
+
+# key bindings
+
+$if mode=emacs
+
+# "\C-f": forward-word
+# "\C-b": backward-word
+"\C-a": beginning-of-line
+"\C-e": end-of-line
+"\C-u": unix-line-discard
+"\C-w": unix-word-rubout
+"\C-x\C-u": undo
+
+$endif
