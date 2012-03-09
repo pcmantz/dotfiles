@@ -20,6 +20,9 @@ alias la='l -A'
 alias lal='l -Al'
 alias lalh='l -Alh'
 
+# editor commands
+export EDITOR="mg"
+
 # emacs aliases
 alias e="emacs"
 alias ec="emacsclient"
@@ -32,7 +35,5 @@ alias lperl="perl -Ilib"
 # common command aliases
 alias g="git"
 
-# editor commands
-export EDITOR="mg"
-export GIT_EDITOR="mg"
-
+# ruby (and friends) aliases
+alias be="bundle exec"
