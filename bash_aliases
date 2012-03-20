@@ -13,6 +13,13 @@ if [ -x /usr/bin/dircolors ]; then
     alias egrep='egrep --color=auto'
 fi
 
+DIFF='diff'
+DIFFOPTS='-upd'
+if [ -s `which colordiff` ]; then
+    DIFF='colordiff'
+fi
+alias diff="${DIFF} ${DIFFOPTS}"
+
 # convenient ls aliases
 alias l='ls -CF'
 alias ll='l -l'
