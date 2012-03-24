@@ -8,8 +8,10 @@ set bell-style visible
 
 # meta key stuff
 set enable-meta-key on
+set meta-flag on
 set input-meta on
 set output-meta on
+set convert-meta off
 
 # tab completion
 set disable-completion off
@@ -31,3 +33,7 @@ $if mode=emacs
 "\C-x\C-u": undo
 
 $endif
+
+# Local Variables:
+# mode: conf-space
+# End:
