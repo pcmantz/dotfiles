@@ -37,7 +37,8 @@ alias enw='emacs -nw'
 alias ect='emacsclient -t'
 
 # perl aliases
-alias lperl='perl -Ilib'
+alias lperl='perl -I./lib -I./local'
+alias pb='perlbrew'
 
 # common command aliases
 alias g='git'
