@@ -1,4 +1,10 @@
 *~
 .#*
-#*
+\#*
 *#
+
+# Useful for per-project stuff
+notes.org
+
+# Seriously
+.DS_Store
