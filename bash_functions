@@ -40,3 +40,19 @@ function scroll-colors {
         echo -e ${o:${#o}-3:3} `tput setaf $i;tput setab $i`${y// /=}$x;
     done
 }
+
+function up {
+    usage='USAGE: up <number>'
+    if [[ $# -ne 1 ]] ; then 
+        echo $usage && exit 65
+    fi
+
+    num=$1
+    upstr='.'
+    iter=0
+    until [ $iter -eq $num ] ; do
+        upstr="${upstr}/.."
+        let iter=iter+1
+    done
+    cd $upstr
+}
