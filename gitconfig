@@ -41,6 +41,8 @@
     # diff shortcuts
     d   = diff --patience
     dc  = diff --patience --cached
+    d1  = diff --patience HEAD~1
+    d2  = diff --patience HEAD~2
 
     # reset shortcuts
     rss = reset --soft
