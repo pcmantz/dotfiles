@@ -45,3 +45,10 @@ alias g='git'
 
 # ruby (and friends) aliases
 alias be='bundle exec'
+
+# misc
+alias sha1='openssl sha1'
+alias ports='netstat -tulanp'
+
+alias psmem='ps auxf | sort -nr -k 4'
+alias pscpu='ps auxf | sort -nr -k 3'

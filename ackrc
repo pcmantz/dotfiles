@@ -5,4 +5,4 @@
 --type-set=haml=.haml
 --type-set=sass=.sass,.scss
 --type-set=ini=.ini,.cfg
-# --pager=less -r
+--pager=less -r
