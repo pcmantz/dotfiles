@@ -64,6 +64,9 @@ xterm*|rxvt*)
     ;;
 esac
 
+# Change the screen pane name if we are in a git directory
+PROMPT_COMMAND='[[ -d $PWD/.git ]] && screen -X title "$(basename $(dirname $PWD)) $(basename $PWD)"'
+
 # aliases and variable definitions
 if [ -f ~/.bash_aliases ]; then
     source ~/.bash_aliases
@@ -85,7 +88,6 @@ fi
 #
 
 if [ -z $BASHRC_DONE ]; then
-
 
     # set up local environment
     if [ -f ~/.bashrc.local ]; then
