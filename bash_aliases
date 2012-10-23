@@ -53,6 +53,7 @@ alias g='git'
 
 # ruby (and friends) aliases
 alias be='bundle exec'
+alias lruby='ruby -Ilib'
 
 # misc
 alias sha1='openssl sha1'
