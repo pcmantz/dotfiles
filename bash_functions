@@ -1,7 +1,7 @@
 # -*- Mode: shell-script -*-
 
 function show_path {
-    echo $PATH | sed -e 's|:|\n|g'
+    perl -E 'say $_ for (split /:/, $ENV{PATH})'
 }
 
 function where_pm {
@@ -10,7 +10,7 @@ function where_pm {
     perl -M${MODULE} -E "say \$INC{q{$REL_PATH}};"
 }
 
- # Handy Extract Program.
+# Handy Extract Program.
 function extract {
     if [ -f $1 ] ; then
         case $1 in
