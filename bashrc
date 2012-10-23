@@ -90,10 +90,10 @@ fi
 if [ -z $BASHRC_DONE ]; then
 
     # set up local environment
-    if [ -f ~/.bashrc.local ]; then
-        source ~/.bashrc.local
+    if [ -f $HOME/.bashrc.local ]; then
+        source $HOME/.bashrc.local
     fi
 
-    export PATH=~/bin:${PATH}
+    export PATH=$HOME/bin:${PATH}
     export BASHRC_DONE=TRUE
 fi
