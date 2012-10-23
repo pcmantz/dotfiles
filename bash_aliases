@@ -28,7 +28,15 @@ alias lal='l -Al'
 alias lalh='l -Alh'
 
 # editor commands
-export EDITOR='mg'
+
+if [ -s `which zile` ]; then
+    EDITOR=zile
+elif [ -s `which mg` ]; then
+    EDITOR=mg
+else
+    EDITOR=vi
+fi
+export EDITOR
 
 # emacs aliases
 alias e='emacs'
