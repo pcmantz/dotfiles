@@ -5,4 +5,6 @@
 --type-set=haml=.haml
 --type-set=sass=.sass,.scss
 --type-set=ini=.ini,.cfg
+--type-set=md=.markdown,.md,.mdown,.mkdn,.mdwn
+
 --pager=less -r
