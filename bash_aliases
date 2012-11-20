@@ -50,6 +50,7 @@ alias pb='perlbrew'
 
 # common command aliases
 alias g='git'
+alias fucking='sudo'
 
 # ruby (and friends) aliases
 alias be='bundle exec'
