@@ -40,7 +40,9 @@
 
     # diff shortcuts
     d   = diff --patience
+    dw  = diff --patience --ignore-all-space
     dc  = diff --patience --cached
+    dcw = diff --patience --cached --ignore-all-space
     d1  = diff --patience HEAD~1
     d2  = diff --patience HEAD~2
 
