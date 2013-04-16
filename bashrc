@@ -82,18 +82,7 @@ if [ -f /etc/bash_completion ]; then
     source /etc/bash_completion
 fi
 
-#
-# Only run the following code once.  Elsewise, it's going to completely wreck
-# my path and look ugly, especially since I have a habit of nesting shells.
-#
-
-if [ -z $BASHRC_DONE ]; then
-
-    # set up local environment
-    if [ -f $HOME/.bashrc.local ]; then
-        source $HOME/.bashrc.local
-    fi
-
-    export PATH=$HOME/bin:${PATH}
-    export BASHRC_DONE=TRUE
+# set up local environment
+if [ -f $HOME/.bashrc.local ]; then
+    source $HOME/.bashrc.local
 fi
