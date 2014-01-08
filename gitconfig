@@ -45,6 +45,7 @@
     dcw = diff --patience --cached --ignore-all-space
     d1  = diff --patience HEAD~1
     d2  = diff --patience HEAD~2
+    d3  = diff --patience HEAD~3
 
     # reset shortcuts
     rss = reset --soft
@@ -53,11 +54,14 @@
 
     # rebase shortcuts
     rb  = rebase
+    rba = rebase --abort
     rbi = rebase --interactive
     rbc = rebase --continue
 
     # log shortcuts
     lgo = log --graph --oneline
+    lgp = log --patch
+    lgs = log --stat
 
     who    = shortlog -s --
     whois  = "!sh -c 'git log -i -1 --pretty=\"format:%an <%ae>\n\" --author =\"$1\"' -"
