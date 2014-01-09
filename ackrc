@@ -7,4 +7,8 @@
 --type-set=ini=.ini,.cfg
 --type-set=md=.markdown,.md,.mdown,.mkdn,.mdwn
 
---pager=less -r
+--ignore-dir=vendor
+--ignore-dir=deprecated
+--ignore-dir=db
+
+# --pager=less -r
