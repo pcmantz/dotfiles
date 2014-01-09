@@ -28,7 +28,6 @@ alias lal='l -Al'
 alias lalh='l -Alh'
 
 # editor commands
-
 if [ -s `which zile` ]; then
     EDITOR=zile
 elif [ -s `which mg` ]; then
@@ -51,6 +50,7 @@ alias pb='perlbrew'
 # common command aliases
 alias g='git'
 alias fucking='sudo'
+alias please='sudo !!'
 
 # ruby (and friends) aliases
 alias be='bundle exec'
@@ -62,3 +62,5 @@ alias ports='netstat -tulanp'
 
 alias psmem='ps auxf | sort -nr -k 4'
 alias pscpu='ps auxf | sort -nr -k 3'
+
+alias stresc='sed -r "s/\x1B\[([0-9]{1,2}(;[0-9]{1,2})?)?[m|K]//g"'
