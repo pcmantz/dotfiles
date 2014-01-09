@@ -43,7 +43,7 @@ function scroll-colors {
 
 function up {
     usage='USAGE: up <number>'
-    if [[ $# -ne 1 ]] ; then 
+    if [[ $# -ne 1 ]] ; then
         echo $usage && exit 65
     fi
 
