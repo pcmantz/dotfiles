@@ -56,3 +56,9 @@ function up {
     done
     cd $upstr
 }
+
+function daemon
+{
+    (exec "$@" >&/dev/null &)
+}
+alias d='daemon'
