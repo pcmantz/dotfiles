@@ -57,8 +57,20 @@ function up {
     cd $upstr
 }
 
-function daemon
-{
+function daemon {
     (exec "$@" >&/dev/null &)
 }
 alias d='daemon'
+
+function pws () {
+    plackup -MPlack::App::File -e '
+        package PWS;
+        use parent "Plack::App::File";
+        sub locate_file {
+            $_[1]->{PATH_INFO} .= "index.html"
+                if $_[1]->{PATH_INFO} =~ m{/$};
+            $_[0]->SUPER::locate_file($_[1]);
+        }
+        PWS->new->to_app;
+    '
+}
