@@ -37,6 +37,13 @@ else
 fi
 export EDITOR
 
+# pager
+export PAGER='less -r'
+
+# date aliases
+alias date8601='date +%Y%m%dT%H%M'
+alias date8601ext='date +"%Y-%m-%dT%H:%M:%S%z"'
+
 # emacs aliases
 alias e='emacs'
 alias ec='emacsclient'
