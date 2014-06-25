@@ -62,6 +62,7 @@
     lgo = log --graph --oneline
     lgp = log --patch
     lgs = log --stat
+    hist = log --graph --oneline --all
 
     who    = shortlog -s --
     whois  = "!sh -c 'git log -i -1 --pretty=\"format:%an <%ae>\n\" --author =\"$1\"' -"
