@@ -49,7 +49,8 @@ if [ -n "$force_color_prompt" ]; then
 fi
 
 if [ "$color_prompt" = yes ]; then
-    PS1='${debian_chroot:+($debian_chroot)}'
+    PS1="[\$(date -u +\"%Y-%m-%dT%H:%M:%SZ\")]"
+    PS1="${PS1} ${debian_chroot:+($debian_chroot)}"
     PS1="${PS1}\[\033[01;32m\]\u@\h\[\033[00m\]"
     PS1="${PS1}:\[\033[01;34m\]\w\[\033[00m\]"
     PS1="${PS1}\n\$ "
