@@ -48,12 +48,37 @@ if [ -n "$force_color_prompt" ]; then
     fi
 fi
 
-if [ "$color_prompt" = yes ]; then
-    PS1="[\$(date -u +\"%Y-%m-%dT%H:%M:%SZ\")]"
+function set_color_prompt {
+    local BLACK="\[\033[0;30m\]"
+    local BLACKBOLD="\[\033[1;30m\]"
+    local RED="\[\033[0;31m\]"
+    local REDBOLD="\[\033[1;31m\]"
+    local GREEN="\[\033[0;32m\]"
+    local GREENBOLD="\[\033[1;32m\]"
+    local YELLOW="\[\033[0;33m\]"
+    local YELLOWBOLD="\[\033[1;33m\]"
+    local BLUE="\[\033[0;34m\]"
+    local BLUEBOLD="\[\033[1;34m\]"
+    local PURPLE="\[\033[0;35m\]"
+    local PURPLEBOLD="\[\033[1;35m\]"
+    local CYAN="\[\033[0;36m\]"
+    local CYANBOLD="\[\033[1;36m\]"
+    local WHITE="\[\033[0;37m\]"
+    local WHITEBOLD="\[\033[1;37m\]"
+    local ENDCOLOR="\[\033[00m\]"
+
+
+    PS1="${WHITEBOLD}[\$(date -u +\"%Y-%m-%dT%H:%M:%SZ\")]\${ENDCOLOR}"
     PS1="${PS1} ${debian_chroot:+($debian_chroot)}"
-    PS1="${PS1}\[\033[01;32m\]\u@\h\[\033[00m\]"
-    PS1="${PS1}:\[\033[01;34m\]\w\[\033[00m\]"
+    PS1="${PS1}${GREENBOLD}\u@\h${ENDCOLOR}"
+    PS1="${PS1}:${BLUEBOLD}\w${ENDCOLOR}"
     PS1="${PS1}\n\$ "
+
+    export PS1=$PS1
+}
+
+if [ "$color_prompt" = yes ]; then
+    set_color_prompt
 else
     PS1='${debian_chroot:+($debian_chroot)}\u@\h:\w\$ '
 fi
