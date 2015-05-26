@@ -27,7 +27,7 @@ sub set_up_symlink {
     my $link   = "$HOME/.$file";
 
     say "symlink $link -> $target";
-    unlink $link if -e $link;
+    unlink $link if (-e $link || -l $link);
     eval { symlink $target, $link; 1 }
       || do { croak "error: $!"; };
 }
