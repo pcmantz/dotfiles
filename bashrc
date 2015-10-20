@@ -16,6 +16,11 @@ touch ${HISTFILE}
 # append to the history file, don't overwrite it
 shopt -s histappend
 
+if [ -z $PROMPT_COMMAND ]; then
+    export PROMPT_COMMAND=':'
+fi
+export PROMPT_COMMAND+='; history -a'
+
 # check the window size after each command and, if necessary, update
 # the values of LINES and COLUMNS.
 shopt -s checkwinsize
@@ -94,7 +99,7 @@ xterm*|rxvt*)
 esac
 
 # Change the screen pane name if we are in a git directory
-PROMPT_COMMAND='[[ -d $PWD/.git ]] && screen -X title "$(basename $(dirname $PWD)) $(basename $PWD)"'
+PROMPT_COMMAND+='; [[ -d $PWD/.git ]] && screen -X title "$(basename $(dirname $PWD)) $(basename $PWD)"'
 
 # aliases and variable definitions
 if [ -f ~/.bash_aliases ]; then
