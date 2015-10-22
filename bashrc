@@ -16,7 +16,7 @@ touch ${HISTFILE}
 # append to the history file, don't overwrite it
 shopt -s histappend
 
-if [ -z $PROMPT_COMMAND ]; then
+if [ -z "$PROMPT_COMMAND" ]; then
     export PROMPT_COMMAND=':'
 fi
 export PROMPT_COMMAND+='; history -a'
