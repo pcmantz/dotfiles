@@ -99,7 +99,24 @@ xterm*|rxvt*)
 esac
 
 # Change the screen pane name if we are in a git directory
-PROMPT_COMMAND+='; [[ -d $PWD/.git ]] && screen -X title "$(basename $(dirname $PWD)) $(basename $PWD)"'
+function set_tab_title {
+    if [[ ! -d $PWD/.git ]] ; then
+       return
+    fi
+
+    git_title="$(basename $(dirname $PWD)) $(basename $PWD)"
+
+    if [[ -n "$TMUX" ]] ; then
+        tmux rename-window "$git_title"
+    elif [[ -n "$STY" ]] ; then
+        screen -X title "$git_title"
+    else
+        : # do nothing?
+    fi
+
+}
+
+PROMPT_COMMAND+='; set_tab_title'
 
 # aliases and variable definitions
 if [ -f ~/.bash_aliases ]; then
