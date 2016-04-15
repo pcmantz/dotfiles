@@ -59,14 +59,23 @@
     rbc = rebase --continue
 
     # log shortcuts
-    lgo = log --graph --oneline
+    lgo = log --graph --oneline --decorate
     lgp = log --patch
     lgs = log --stat
-    hist = log --graph --oneline --all
+    tree = log --oneline --decorate --graph --all
 
+    # analytics
     who    = shortlog -s --
     whois  = "!sh -c 'git log -i -1 --pretty=\"format:%an <%ae>\n\" --author =\"$1\"' -"
     whatis = show -s --pretty='tformat:%h (%s, %ad)' --date=short
+
+    # misc
+    spsp = "!sh -c 'git stash; git pull $@; git stash pop'"
+    tidy = "!f() { \
+        local branch="${1-develop}"; \
+        echo "Pruning branches that are already merged into $branch..."; \
+        git remote prune origin && git branch --merged "$branch" | grep --color=auto --exclude-dir={.bzr,.cvs,.git,.hg,.svn} -v " $branch" | xargs -n 1 git branch -d; \
+    }; f"
 
 
 # Local Variables:
