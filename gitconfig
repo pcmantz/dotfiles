@@ -64,6 +64,9 @@
     lgs = log --stat
     tree = log --oneline --decorate --graph --all
 
+    # push shortcuts
+    pf = push --force-with-lease
+
     # analytics
     who    = shortlog -s --
     whois  = "!sh -c 'git log -i -1 --pretty=\"format:%an <%ae>\n\" --author =\"$1\"' -"
