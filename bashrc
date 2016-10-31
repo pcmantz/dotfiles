@@ -118,6 +118,12 @@ function set_tab_title {
 
 PROMPT_COMMAND+='; set_tab_title'
 
+# make sure $HOME/bin is included, when present
+if [ -d $HOME/bin ]; then
+    PATH=$HOME/bin:${PATH}
+    export PATH
+fi
+
 # aliases and variable definitions
 if [ -f ~/.bash_aliases ]; then
     source ~/.bash_aliases
