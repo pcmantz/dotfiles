@@ -2,6 +2,7 @@
 
 --type-set=pm=.pm,.pm6
 --type-set=mason=.mas
+--type-set=org=.org
 --type-set=haml=.haml
 --type-set=slim=.slim
 --type-set=sass=.sass,.scss
