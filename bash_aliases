@@ -1,5 +1,6 @@
 #!/bin/bash
-# ~/.bash_aliases
+
+# bash_aliases
 
 # enable color support of ls and also add handy aliases
 if [ -x /usr/bin/dircolors ]; then
@@ -54,14 +55,22 @@ alias ect='emacsclient -t'
 alias lperl='perl -I./lib -I./local'
 alias pb='perlbrew'
 
+# ruby (and friends) aliases
+alias be='bundle exec'
+alias bes='bundle exec spring'
+alias lruby='ruby -Ilib'
+
 # common command aliases
 alias g='git'
 alias fucking='sudo'
 alias please='sudo !!'
 
-# ruby (and friends) aliases
-alias be='bundle exec'
-alias lruby='ruby -Ilib'
+# docker
+alias dk='docker'
+alias dkc='docker-compose'
+
+# OS X
+alias bs='brew services'
 
 # misc
 alias sha1='openssl sha1'
