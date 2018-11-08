@@ -69,6 +69,10 @@ alias please='sudo !!'
 alias dk='docker'
 alias dkc='docker-compose'
 
+# kubernetes
+alias mk='minikube'
+alias kc='kubectl'
+
 # OS X
 alias bs='brew services'
 
