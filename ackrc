@@ -8,6 +8,7 @@
 --type-set=sass=.sass,.scss
 --type-set=ini=.ini,.cfg
 --type-set=md=.markdown,.md,.mdown,.mkdn,.mdwn
+--type-set=ts=.ts,.tsx,.spec.ts
 
 --ignore-dir=vendor
 --ignore-dir=deprecated
