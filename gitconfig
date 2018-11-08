@@ -64,6 +64,10 @@
     lgs = log --stat
     tree = log --oneline --decorate --graph --all
 
+    # pull shortcuts
+    pr = pull --rebase
+    pra = pull --rebase --autostash
+
     # push shortcuts
     pf = push --force-with-lease
 
@@ -98,4 +102,4 @@
 # mode: conf-unix
 # End:
 [magit]
-	hideCampaign = true
+    hideCampaign = true
