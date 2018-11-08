@@ -86,3 +86,5 @@ alias pscpu='ps auxf | sort -nr -k 3'
 alias stresc='sed -r "s/\x1B\[([0-9]{1,2}(;[0-9]{1,2})?)?[m|K]//g"'
 
 alias add-all-ssh-keys='ssh-add $(ack -l "\-\-\-\-\-BEGIN .* PRIVATE KEY\-\-\-\-\-" ~/.ssh )'
+
+alias yaml2json="ruby -r yaml -r json -e 'print JSON.generate YAML.load(File.read(ARGV[0]))'"
