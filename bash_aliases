@@ -16,22 +16,35 @@ fi
 
 DIFF='diff'
 DIFFOPTS='-upd'
-if [ -s `which colordiff` ]; then
+if [ -s "$(command -v colordiff)" ]; then
     DIFF='colordiff'
 fi
 alias diff="${DIFF} ${DIFFOPTS}"
 
 # convenient ls aliases
-alias l='ls -CF'
-alias ll='l -l'
-alias la='l -A'
-alias lal='l -Al'
-alias lalh='l -Alh'
+if [ -s "$(command -v exa)" ]; then
+    alias ls='exa'
+    alias l='exa -F'
+    alias ll='exa -l'
+    alias la='exa -a'
+    alias lal='exa -al'
+    alias lalh='exa -alh'
+else
+    alias l='ls -CF'
+    alias ll='l -l'
+    alias la='l -A'
+    alias lal='l -Al'
+    alias lalh='l -Alh'
+fi
+
+if [ -s "$(command -v tree)" ]; then
+    alias tree='tree -C'
+fi
 
 # editor commands
-if [ -s `which zile` ]; then
+if [ -s "$(command -v zile)" ]; then
     EDITOR=zile
-elif [ -s `which mg` ]; then
+elif [ -s "$(command -v mg)" ]; then
     EDITOR=mg
 else
     EDITOR=vi
