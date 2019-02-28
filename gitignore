@@ -3,6 +3,9 @@
 \#*
 *#
 
+# Emacs stuff
+.dir-locals.el
+
 # Useful for per-project stuff
 notes.org
 
