@@ -9,9 +9,11 @@
 --type-set=ini=.ini,.cfg
 --type-set=md=.markdown,.md,.mdown,.mkdn,.mdwn
 --type-set=ts=.ts,.tsx,.spec.ts
+--type-set=hbs=.hbs
+--type-set=org=.org
 
 --ignore-dir=vendor
 --ignore-dir=deprecated
 --ignore-dir=db
 
-# --pager=less -r
+--pager=bat
