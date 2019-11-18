@@ -4,7 +4,7 @@
 
 # enable color support of ls and also add handy aliases
 if [ -x /usr/bin/dircolors ]; then
-    eval "`dircolors -b`"
+    eval "$(dircolors -b)"
     alias ls='ls --color=auto'
     alias dir='dir --color=auto'
     alias vdir='vdir --color=auto'
@@ -23,18 +23,20 @@ alias diff="${DIFF} ${DIFFOPTS}"
 
 # convenient ls aliases
 if [ -s "$(command -v exa)" ]; then
-    alias ls='exa'
     alias l='exa -F'
-    alias ll='exa -l'
     alias la='exa -a'
     alias lal='exa -al'
     alias lalh='exa -alh'
+    alias ll='exa -l'
+    alias llm='exa -l --sort=modified'
+    alias lm='exa --sort=modified'
+    alias ls='exa'
 else
     alias l='ls -CF'
-    alias ll='l -l'
     alias la='l -A'
     alias lal='l -Al'
     alias lalh='l -Alh'
+    alias ll='l -l'
 fi
 
 if [ -s "$(command -v tree)" ]; then
@@ -43,16 +45,20 @@ fi
 
 # editor commands
 if [ -s "$(command -v zile)" ]; then
-    EDITOR=zile
+    EDITOR='zile'
 elif [ -s "$(command -v mg)" ]; then
-    EDITOR=mg
+    EDITOR='mg'
 else
-    EDITOR=vi
+    EDITOR='vi'
 fi
 export EDITOR
 
 # pager
-export PAGER='less -r'
+if [ -s "$(command -v bat)" ]; then
+    export PAGER='bat'
+else
+    export PAGER='less -r'
+fi
 
 # date aliases
 alias date8601='date +%Y%m%dT%H%M'
