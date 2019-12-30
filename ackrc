@@ -2,16 +2,29 @@
 
 --type-set=pm=.pm,.pm6
 --type-set=mason=.mas
---type-set=org=.org
---type-set=haml=.haml
---type-set=slim=.slim
---type-set=sass=.sass,.scss
+
+# Config
 --type-set=ini=.ini,.cfg
+
+# Ruby
+--type-set=haml=.haml
+--type-set=sass=.sass,.scss
+--type-set=slim=.slim
+
+# Perl
+--type-set=mason=.mas
+--type-set=pm=.pm,.pm6
+
+# Org
+--type-set=org=.org
+
+# Markup
 --type-set=md=.markdown,.md,.mdown,.mkdn,.mdwn
 --type-set=ts=.ts,.tsx,.spec.ts
 --type-set=hbs=.hbs
 --type-set=org=.org
 
+# Ignored files
 --ignore-dir=vendor
 --ignore-dir=deprecated
 --ignore-dir=db
