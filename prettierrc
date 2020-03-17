@@ -1,0 +1,9 @@
+# prettierrc
+
+semi: true
+quoteProps: 'as-needed'
+# singleQuote: true
+
+# Local Variables:
+# mode: yaml
+# End:
