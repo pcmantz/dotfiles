@@ -7,7 +7,7 @@ function show_path {
 function where_pm {
     MODULE=$1
     REL_PATH=`echo $MODULE | sed -e 's|::|/|g'`.pm
-    perl -M${MODULE} -E "say \$INC{q{$REL_PATH}};"
+    perl -M"${MODULE}" -E "say \$INC{q{$REL_PATH}};"
 }
 
 # Handy Extract Program.
@@ -26,25 +26,33 @@ function extract {
             *.Z)         uncompress $1   ;;
             *.7z)        7z x $1         ;;
             *)           echo "'$1' cannot be extracted via >extract<" ;;
-         esac
+        esac
     else
         echo "'$1' is not a valid file"
     fi
 }
 
 function scroll-colors {
-    x=`tput op`
-    y=`printf %80s`
+    x=$(tput op)
+    y=$(printf %80s)
     for i in {0..256}; do
         o=00$i
-        echo -e ${o:${#o}-3:3} `tput setaf $i;tput setab $i`${y// /=}$x;
+        echo -e ${o:${#o}-3:3} $(tput setaf $i;tput setab $i)${y// /=}$x;
     done
+}
+
+function pd() {
+    if [[ $# -eq 0 ]]; then
+        popd
+    else
+        pushd "$@"
+    fi
 }
 
 function up {
     usage='USAGE: up <number>'
     if [[ $# -ne 1 ]] ; then
-        echo $usage && exit 65
+        echo "$usage" && exit 65
     fi
 
     num=$1
@@ -54,7 +62,7 @@ function up {
         upstr="${upstr}/.."
         let iter=iter+1
     done
-    cd $upstr
+    cd $upstr || return
 }
 
 function daemon {
@@ -73,4 +81,20 @@ function pws () {
         }
         PWS->new->to_app;
     '
+}
+
+function html2haml_file {
+    file=$1
+    stem=${file%.html.erb}
+
+    html2haml "${file}" "${stem}.html.haml"
+    rm "${file}"
+}
+
+function minikube-token {
+    kubectl describe secret -n kube-system $(kubectl get secrets -n kube-system | grep default | cut -f1 -d ' ') | grep -E '^token' | cut -f2 -d':' | tr -d '\t' | tr -d " "
+}
+
+function ackhist {
+    ack "$@" "${HOME}/.history/"
 }
