@@ -9,7 +9,9 @@
 # force ignoredups and ignorespace
 export HISTCONTROL=ignoreboth
 
-export HISTFILE="${HOME}/.history/$(date -u +%Y/%m/%d.%H.%M.%S)_${HOSTNAME}_$$"
+HISTFILE="${HOME}/.history/$(date -u +%Y/%m/%d.%H.%M.%S)_${HOSTNAME}_$$"
+export HISTFILE
+
 mkdir -p "$(dirname ${HISTFILE})"
 touch "${HISTFILE}"
 
@@ -118,27 +120,21 @@ function set_tab_title {
 
 PROMPT_COMMAND+='; set_tab_title'
 
-# enable programmable completion features if they exist
-if [ -f /etc/bash_completion ]; then
-    source /etc/bash_completion
-fi
+function source_if_exists() {
+  file=$1
+
+  if [ -f "$file" ]; then
+    #shellcheck source=/dev/null
+    source "$file"
+  fi
+}
+
+source_if_exists "/etc/bash_completion"
 
 if [ -d "${HOME}/bin" ]; then
     export PATH="$HOME/bin:${PATH}"
 fi
 
-# NOTE: set up local environment. May include some local system scripts, so
-# load before applying local customizations
-if [ -f "$HOME/.bashrc.local" ]; then
-    source "${HOME}/.bashrc.local"
-fi
-
-# aliases and variable definitions
-if [ -f ~/.bash_aliases ]; then
-    source ~/.bash_aliases
-fi
-
-# load some useful functions
-if [ -f ~/.bash_functions ]; then
-    source ~/.bash_functions
-fi
+source_if_exists "${HOME}/.bashrc.local"
+source_if_exists "${HOME}/.bash_aliases"
+source_if_exists "${HOME}/.bash_functions"
