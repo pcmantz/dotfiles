@@ -1,13 +1,21 @@
+# gitignore
+
+# Usually sensitive information
+.envrc*
+
+# Emacs stuff
+.dir-locals.el
 *~
 .#*
 \#*
 *#
-
-# Emacs stuff
-.dir-locals.el
 
 # Useful for per-project stuff
 notes.org
 
 # Seriously
 .DS_Store
+
+# Local Variables:
+# mode: gitignore
+# End:
