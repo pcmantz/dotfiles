@@ -55,7 +55,10 @@ export EDITOR
 
 # pager
 if [ -s "$(command -v bat)" ]; then
-    export PAGER='bat'
+    # Apparently this now causes buffer overflow problems
+    # export PAGER='bat'
+
+    export PAGER='less -r'
 else
     export PAGER='less -r'
 fi
