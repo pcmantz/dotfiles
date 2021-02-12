@@ -138,3 +138,4 @@ fi
 source_if_exists "${HOME}/.bashrc.local"
 source_if_exists "${HOME}/.bash_aliases"
 source_if_exists "${HOME}/.bash_functions"
+source_if_exists "${HOME}/.cargo/env"
