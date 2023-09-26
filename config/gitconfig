@@ -19,6 +19,7 @@
 
 [core]
     excludesfile = ~/.gitignore
+    pager = less
 
 [alias]
 

@@ -4,7 +4,7 @@
 
 use_ruby() {
   local ruby_dir=$HOME/.rubies/$1
-  load_prefix $ruby_dir
+  load_prefix "$ruby_dir"
   layout ruby
 }
 
@@ -18,3 +18,9 @@ use_python() {
     exit
   fi
 }
+
+# expected configuration for ruby projects
+if [[ -f "./.ruby-version" ]]; then
+  use_ruby "$(cat ./.ruby_version)"
+  PATH_add "bin"
+fi

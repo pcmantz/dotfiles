@@ -1,6 +1,8 @@
-#!/bin/bash
+# sh_aliases
 
-# bash_aliases
+# Aliases for convienient use in as many shells as possible
+#
+
 
 # enable color support of ls and also add handy aliases
 if [ -x /usr/bin/dircolors ]; then
@@ -22,7 +24,7 @@ fi
 alias diff="${DIFF} ${DIFFOPTS}"
 
 # convenient ls aliases
-if [ -s "$(command -v exa)" ]; then
+if [ -x "$(command -v exa)" ]; then
     alias l='exa -F'
     alias la='exa -a'
     alias lal='exa -al'
@@ -39,22 +41,22 @@ else
     alias ll='l -l'
 fi
 
-if [ -s "$(command -v tree)" ]; then
+if [ -x "$(command -v tree)" ]; then
     alias tree='tree -C'
 fi
 
 # editor commands
-if [ -s "$(command -v zile)" ]; then
+if [ -x "$(command -v zile)" ]; then
     EDITOR='zile'
-elif [ -s "$(command -v mg)" ]; then
+elif [ -x "$(command -v mg)" ]; then
     EDITOR='mg'
 else
-    EDITOR='vi'
+    EDITOR='nano'
 fi
 export EDITOR
 
 # pager
-if [ -s "$(command -v bat)" ]; then
+if [ -x "$(command -v bat)" ]; then
     # Apparently this now causes buffer overflow problems
     # export PAGER='bat'
 
@@ -109,4 +111,14 @@ alias stresc='sed -r "s/\x1B\[([0-9]{1,2}(;[0-9]{1,2})?)?[m|K]//g"'
 
 alias add-all-ssh-keys='ssh-add $(ack -l "\-\-\-\-\-BEGIN .* PRIVATE KEY\-\-\-\-\-" ~/.ssh )'
 
-alias yaml2json="ruby -r yaml -r json -e 'print JSON.generate YAML.load(File.read(ARGV[0]))'"
+if [ -x "$(command -v yq)" ]; then
+    alias json2yaml='yq -p json -o yaml -P . '
+    alias yaml2json='yq -p yaml -o json -P . '
+
+    alias json2xml='yq -p json -o xml -P . '
+    alias xml2json='yq -p xml -o json -P . '
+else
+    alias yaml2json="ruby -r yaml -r json -e 'print JSON.generate YAML.load(File.read(ARGV[0]))'"
+    alias xml2json="ruby -r nokogiri -r json -r active_support/all -e 'STDOUT.puts Hash.from_xml(File.open(ARGV[0])).to_json'"
+    alias json2xml="ruby -r nokogiri -r json -r active_support/all -e 'STDOUT.puts Hash.from_json(File.open(ARGV[0])).to_xml'"
+fi
