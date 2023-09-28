@@ -1,8 +1,6 @@
 # sh_aliases
 
-# Aliases for convienient use in as many shells as possible
-#
-
+# Aliases for convienient use in as many shells as possible.
 
 # enable color support of ls and also add handy aliases
 if [ -x /usr/bin/dircolors ]; then
@@ -122,3 +120,7 @@ else
     alias xml2json="ruby -r nokogiri -r json -r active_support/all -e 'STDOUT.puts Hash.from_xml(File.open(ARGV[0])).to_json'"
     alias json2xml="ruby -r nokogiri -r json -r active_support/all -e 'STDOUT.puts Hash.from_json(File.open(ARGV[0])).to_xml'"
 fi
+
+# Local Variables:
+# mode: sh
+# End:
