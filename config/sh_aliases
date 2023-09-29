@@ -22,7 +22,16 @@ fi
 alias diff="${DIFF} ${DIFFOPTS}"
 
 # convenient ls aliases
-if [ -x "$(command -v exa)" ]; then
+if [ -x "$(command -v lsd)" ]; then
+    alias l='lsd -F'
+    alias la='lsd -a'
+    alias lal='lsd -al'
+    alias lalh='lsd -alh'
+    alias ll='lsd -l'
+    alias llm='lsd -l --sort=time'
+    alias lm='lsd --sort=time'
+    # alias ls='lsd'
+elif [ -x "$(command -v exa)" ]; then
     alias l='exa -F'
     alias la='exa -a'
     alias lal='exa -al'
@@ -30,7 +39,7 @@ if [ -x "$(command -v exa)" ]; then
     alias ll='exa -l'
     alias llm='exa -l --sort=modified'
     alias lm='exa --sort=modified'
-    alias ls='exa'
+    # alias ls='exa'
 else
     alias l='ls -CF'
     alias la='l -A'
