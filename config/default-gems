@@ -1,0 +1,9 @@
+# default-gems
+# Gems installed by ruby-build by default
+
+bundle
+pry
+pry-byebug
+rails
+rspec
+rubocop

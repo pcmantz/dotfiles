@@ -1,0 +1,12 @@
+#!/usr/bin/env bash
+#
+# .envrc -- set user defaults for direnv
+#
+# This file is used by direnv to load defaults that are used by direnv as 'root' defaults. In
+# addition, this file bootstraps asdf. This way, we can use asdf-direnv to manage adding all the
+# dependencies in .tool-versions both globally and on a per-project basis without having to rely on
+# shims.
+#
+# For more information, see https://github.com/asdf-community/asdf-direnv
+#
+use asdf
