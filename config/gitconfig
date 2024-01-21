@@ -104,3 +104,5 @@
 # End:
 [magit]
     hideCampaign = true
+[init]
+    defaultBranch = main
