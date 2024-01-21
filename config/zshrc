@@ -69,5 +69,4 @@ fi
 
 source_if_exists "${HOME}/.sh_aliases"
 source_if_exists "${HOME}/.sh_functions"
-source_if_exists "${HOME}/.cargo/env"
 source_if_exists "${HOME}/.zsh.local"
