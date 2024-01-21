@@ -1,3 +1,5 @@
+# Justfile
+
 default:
     just --list
 
