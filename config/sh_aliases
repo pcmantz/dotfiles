@@ -107,6 +107,10 @@ alias kc='kubectl'
 # OS X
 alias bs='brew services'
 
+# Just
+alias j='just'
+alias m='make'
+
 # misc
 alias sha1='openssl sha1'
 alias ports='netstat -tulanp'
@@ -116,8 +120,11 @@ alias pscpu='ps auxf | sort -nr -k 3'
 
 alias stresc='sed -r "s/\x1B\[([0-9]{1,2}(;[0-9]{1,2})?)?[m|K]//g"'
 
+alias show_path='echo $PATH | tr ":" "\n"'
+
 alias add-all-ssh-keys='ssh-add $(ack -l "\-\-\-\-\-BEGIN .* PRIVATE KEY\-\-\-\-\-" ~/.ssh )'
 
+# yaml/json conversion
 if [ -x "$(command -v yq)" ]; then
     alias json2yaml='yq -p json -o yaml -P . '
     alias yaml2json='yq -p yaml -o json -P . '
