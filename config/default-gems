@@ -1,9 +1,9 @@
 # default-gems
 # Gems installed by ruby-build by default
 
-bundle
+bundler
 pry
 pry-byebug
 rails
-rspec
-rubocop
+rspec-rails
+rubocop-rails
