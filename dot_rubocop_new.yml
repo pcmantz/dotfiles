@@ -1,0 +1,62 @@
+Layout/FirstArrayElementIndentation:
+  Enabled: true
+  EnforcedStyle: consistent
+Layout/FirstArrayElementLineBreak:
+  Enabled: true
+Layout/FirstHashElementIndentation:
+  Enabled: true
+  EnforcedStyle: consistent
+Layout/FirstMethodArgumentLineBreak:
+  Enabled: true
+Layout/LineLength:
+  Max: 100
+Layout/MultilineArrayLineBreaks:
+  Enabled: true
+Layout/MultilineHashKeyLineBreaks:
+  Enabled: true
+Layout/MultilineMethodArgumentLineBreaks:
+  Enabled: true
+Layout/MultilineMethodCallBraceLayout:
+  Enabled: true
+  EnforcedStyle: new_line
+Layout/MultilineMethodCallIndentation:
+  Enabled: true
+  EnforcedStyle: indented_relative_to_receiver
+Layout/MultilineMethodDefinitionBraceLayout:
+  Enabled: true
+  EnforcedStyle: new_line
+Layout/RedundantLineBreak:
+  Enabled: true
+Style/MethodCallWithArgsParentheses:
+  Enabled: true
+  EnforcedStyle: require_parentheses
+  AllowedMethods:
+    - not_to
+    - raise
+    - require
+    - to
+    - to_not
+    - warn
+    - describe
+  AllowedPatterns:
+    - ^assert
+    - ^refute
+Style/MultilineTernaryOperator:
+  Enabled: false
+---
+require:
+  - rubocop-rails
+inherit_from:
+  - ./.rubocop_new.yml
+inherit_mode:
+  merge:
+    - Exclude
+AllCops:
+  DisplayCopNames: true
+  Exclude:
+    - vendor/**/*
+    - bin/**/*
+    - db/schema.rb
+    - db/migrate/**/*
+    - contrib/**/*
+    - public/system/**/*
