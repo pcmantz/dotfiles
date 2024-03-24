@@ -96,6 +96,10 @@ alias g='git'
 alias fucking='sudo'
 alias please='sudo !!'
 
+# environment setup
+alias m='mise'
+alias cm='chezmoi'
+
 # docker
 alias dk='docker'
 alias dkc='docker-compose'
@@ -106,10 +110,6 @@ alias kc='kubectl'
 
 # OS X
 alias bs='brew services'
-
-# Just
-alias j='just'
-alias m='make'
 
 # misc
 alias sha1='openssl sha1'
@@ -126,16 +126,20 @@ alias add-all-ssh-keys='ssh-add $(ack -l "\-\-\-\-\-BEGIN .* PRIVATE KEY\-\-\-\-
 
 # yaml/json conversion
 if [ -x "$(command -v yq)" ]; then
-    alias json2yaml='yq -p json -o yaml -P . '
-    alias yaml2json='yq -p yaml -o json -P . '
-
     alias json2xml='yq -p json -o xml -P . '
+    alias json2yaml='yq -p json -o yaml -P . '
     alias xml2json='yq -p xml -o json -P . '
+    alias yaml2json='yq -p yaml -o json -P . '
 else
-    alias yaml2json="ruby -r yaml -r json -e 'print JSON.generate YAML.load(File.read(ARGV[0]))'"
-    alias xml2json="ruby -r nokogiri -r json -r active_support/all -e 'STDOUT.puts Hash.from_xml(File.open(ARGV[0])).to_json'"
     alias json2xml="ruby -r nokogiri -r json -r active_support/all -e 'STDOUT.puts Hash.from_json(File.open(ARGV[0])).to_xml'"
+    alias xml2json="ruby -r nokogiri -r json -r active_support/all -e 'STDOUT.puts Hash.from_xml(File.open(ARGV[0])).to_json'"
+    alias yaml2json="ruby -r yaml -r json -e 'print JSON.generate YAML.load(File.read(ARGV[0]))'"
 fi
+
+alias j2x='json2xml'
+alias j2y='json2yaml'
+alias x2j='xml2json'
+alias y2j='yaml2json'
 
 # Local Variables:
 # mode: sh
