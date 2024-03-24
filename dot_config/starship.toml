@@ -1,0 +1,27 @@
+# ~/.config/starship.toml
+
+# Get editor completions based on the config schema
+"$schema" = 'https://starship.rs/config-schema.json'
+
+# Inserts a blank line between shell prompts
+add_newline = false
+
+[directory]
+truncate_to_repo = false
+
+[git_branch]
+format = ' [$symbol$branch(:$remote_branch)]($style) '
+
+[hostname]
+ssh_only = false
+format = '[$ssh_symbol$hostname]($style):'
+
+[shell]
+disabled = false
+
+[status]
+disabled = false
+
+[username]
+show_always = true
+format = '[$user]($style)@'

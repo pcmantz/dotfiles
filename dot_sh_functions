@@ -1,9 +1,5 @@
 # -*- Mode: shell-script -*-
 
-function show_path {
-    perl -E 'say $_ for (split /:/, $ENV{PATH})'
-}
-
 function where_pm {
     MODULE=$1
     REL_PATH=`echo $MODULE | sed -e 's|::|/|g'`.pm
@@ -97,4 +93,8 @@ function minikube-token {
 
 function ackhist {
     ack "$@" "${HOME}/.history/"
+}
+
+function dig6 {
+    dig "$@" A "$@" AAAA
 }

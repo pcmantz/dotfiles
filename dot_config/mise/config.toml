@@ -1,0 +1,33 @@
+# ~/.config/mise/config.toml
+
+# Don't use this, just put it in .zshrc.local
+[env]
+
+[tools]
+
+# programming languages
+elixir = "latest"
+erlang = "latest"
+nodejs = "latest"
+perl = "latest"
+ruby = "latest"
+rust = "latest"
+
+# tools
+"cargo:just" = "latest"
+"npm:prettier" = "latest"
+ag = "latest"
+bitwarden = "latest"
+chezmoi = "latest"
+duckdb = "latest"
+jq = "latest"
+ripgrep = "latest"
+shellcheck = 'latest'
+sqlite = "latest"
+starship = "latest"
+yq = "latest"
+
+[plugins]
+
+[settings]
+experimental = true
