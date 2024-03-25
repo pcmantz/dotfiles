@@ -1,0 +1,13 @@
+{{ if eq .chezmoi.os "linux" "darwin" -}}
+#!/usr/bin/env bash
+
+if [ ! -x ~/.local/bin/mise ]; then
+   ~/.local/bin/mise self-update
+else
+    curl https://mise.run | sh
+fi
+{{end -}}
+
+# Local Variables:
+# mode: bash-ts
+# End:
