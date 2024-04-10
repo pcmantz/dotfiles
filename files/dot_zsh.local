@@ -1,6 +1,0 @@
-#!/usr/bin/env zsh
-
-eval "$(~/.local/bin/mise activate zsh)"
-
-eval "$(starship init zsh)"
-eval "$(mcfly init zsh)"
