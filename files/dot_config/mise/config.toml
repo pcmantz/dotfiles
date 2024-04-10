@@ -16,6 +16,7 @@ rust = "latest"
 # tools
 "cargo:just" = "latest"
 "cargo:mcfly" = "latest"
+"cargo:zoxide" = "latest"
 "npm:prettier" = "latest"
 ag = "latest"
 bitwarden = "latest"
