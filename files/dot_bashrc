@@ -135,6 +135,12 @@ if [ -d "${HOME}/bin" ]; then
     export PATH="$HOME/bin:${PATH}"
 fi
 
+eval "$(~/.local/bin/mise activate bash)"
+
+eval "$(mcfly init bash)"
+eval "$(starship init bash)"
+eval "$(zoxide init bash)"
+
 source_if_exists "${HOME}/.bashrc.local"
 source_if_exists "${HOME}/.sh_aliases"
 source_if_exists "${HOME}/.sh_functions"

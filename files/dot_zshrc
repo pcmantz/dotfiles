@@ -67,10 +67,11 @@ if [ -d "${HOME}/bin" ]; then
   export PATH="$HOME/bin:${PATH}"
 fi
 
+eval "$(~/.local/bin/mise activate zsh)"
+
 eval "$(mcfly init zsh)"
 eval "$(starship init zsh)"
 eval "$(zoxide init zsh)"
-eval "$(~/.local/bin/mise activate zsh)"
 
 source_if_exists "${HOME}/.sh_aliases"
 source_if_exists "${HOME}/.sh_functions"
