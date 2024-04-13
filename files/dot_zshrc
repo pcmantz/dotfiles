@@ -63,15 +63,18 @@ function source_if_exists() {
   fi
 }
 
+export MISE_SHIM_DIR="$HOME/.local/share/mise/shims"
+
+eval "$(~/.local/bin/mise activate zsh)"
+mise reshim
+
+eval "$("$MISE_SHIM_DIR"/mcfly init zsh)"
+eval "$("$MISE_SHIM_DIR"/starship init zsh)"
+eval "$("$MISE_SHIM_DIR"/zoxide init zsh)"
+
 if [ -d "${HOME}/bin" ]; then
   export PATH="$HOME/bin:${PATH}"
 fi
-
-eval "$(~/.local/bin/mise activate zsh)"
-
-eval "$(mcfly init zsh)"
-eval "$(starship init zsh)"
-eval "$(zoxide init zsh)"
 
 source_if_exists "${HOME}/.sh_aliases"
 source_if_exists "${HOME}/.sh_functions"
