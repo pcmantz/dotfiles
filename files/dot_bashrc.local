@@ -1,6 +1,0 @@
-#!/usr/bin/env bash
-
-eval "$(~/.local/bin/mise activate bash)"
-
-eval "$(starship init bash)"
-eval "$(mcfly init bash)"
