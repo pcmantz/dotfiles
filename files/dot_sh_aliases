@@ -72,6 +72,11 @@ else
     export PAGER='less -r'
 fi
 
+# tealdeer/tldr
+if [ -x "$(command -v tealdeer)" ]; then
+    alias tldr='tealdeer'
+fi
+
 # date aliases
 alias date8601='date +%Y%m%dT%H%M'
 alias date8601ext='date +"%Y-%m-%dT%H:%M:%S%z"'
