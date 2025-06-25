@@ -1,0 +1,26 @@
+[user]
+name = "Paul C. Mantz"
+email = "pcmantz@mcpantz.org"
+
+[ui]
+default-command = "status"
+
+diff.tool = "delta"
+editor = "zile"
+paginate = "auto"
+pager = "bat -p"
+
+[git]
+push-bookmark-prefix = "pcmantz/feature-"
+
+[aliases]
+
+ci = "commit"
+
+# "New Trunk"
+nt = ["new", "trunk()"]
+
+credit = ["file", "annotate"]
+cat = ["file", "show"]
+
+rmt = ["git", "remote"]
