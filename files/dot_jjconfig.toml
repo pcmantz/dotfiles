@@ -1,3 +1,5 @@
+# .jjconfig.toml
+
 [user]
 name = "Paul C. Mantz"
 email = "pcmantz@mcpantz.org"
@@ -10,17 +12,18 @@ editor = "zile"
 paginate = "auto"
 pager = "bat -p"
 
+diff-formatter = ":git"
+conflict-marker-style = "git"
+
 [git]
-push-bookmark-prefix = "pcmantz/feature-"
+push-bookmark-prefix = "pcmantz/feature/"
 
 [aliases]
 
-ci = "commit"
-
-# "New Trunk"
-nt = ["new", "trunk()"]
-
-credit = ["file", "annotate"]
 cat = ["file", "show"]
-
+ci = "commit"
+credit = ["file", "annotate"]
+d = "diff"
+nt = ["new", "trunk()"]
 rmt = ["git", "remote"]
+l = ["log"]
