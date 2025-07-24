@@ -6,6 +6,7 @@
 [tools]
 
 # programming languages
+deno = "latest"
 elixir = "latest"
 erlang = "latest"
 nodejs = "latest"
@@ -14,23 +15,14 @@ ruby = "latest"
 rust = "latest"
 
 # tools
-"cargo:eza" = "latest"
-"npm:prettier" = "latest"
-"ubi:ajeetdsouza/zoxide" = "latest"
-"ubi:cantino/mcfly" = "latest"
-"ubi:casey/just" = "latest"
-"ubi:dandavison/delta" = "latest"
-"ubi:zellij-org/zellij" = "latest"
-ag = "latest"
 bitwarden = "latest"
-chezmoi = "latest"
+bitwarden-secrets-manager = "latest"
 duckdb = "latest"
-jq = "latest"
-ripgrep = "latest"
-shellcheck = 'latest'
+brewripgrep = "latest"
+shellcheck = "latest"
 sqlite = "latest"
-starship = "latest"
-yq = "latest"
+taplo = "latest"
+usage = "latest"
 
 [plugins]
 
