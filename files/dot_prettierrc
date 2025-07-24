@@ -1,14 +1,13 @@
 # prettierrc
 
+arrowParens: avoid
+bracketSpacing: true
+printWidth: 100
+quoteProps: as-needed
 semi: true
 singleQuote: true
-printWidth: 100
 tabWidth: 2
 trailingComma: es5
-bracketSpacing: true
-arrowParens: avoid
-semi: true
-quoteProps: as-needed
 
 # Local Variables:
 # mode: yaml
