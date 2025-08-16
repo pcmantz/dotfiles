@@ -18,11 +18,11 @@ rust = "latest"
 bitwarden = "latest"
 bitwarden-secrets-manager = "latest"
 duckdb = "latest"
-brewripgrep = "latest"
 shellcheck = "latest"
 sqlite = "latest"
 taplo = "latest"
 usage = "latest"
+pre-commit = "latest"
 
 [plugins]
 
