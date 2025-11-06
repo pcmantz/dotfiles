@@ -1,5 +1,21 @@
 # -*- Mode: shell-script -*-
 
+function path-strip {
+    PATH=${PATH//":$1"/} #delete any instances in the middle or at the end
+    PATH=${PATH//"$1:"/} #delete any instances at the beginning
+}
+
+function path-prepend {
+  path-strip $1
+  export PATH="$1:$PATH"
+}
+
+function path-append {
+  path-strip $1
+  export PATH="$PATH:$1"
+}
+
+
 function where_pm {
     MODULE=$1
     REL_PATH=`echo $MODULE | sed -e 's|::|/|g'`.pm
@@ -66,19 +82,6 @@ function daemon {
 }
 alias d='daemon'
 
-function pws () {
-    plackup -MPlack::App::File -e '
-        package PWS;
-        use parent "Plack::App::File";
-        sub locate_file {
-            $_[1]->{PATH_INFO} .= "index.html"
-                if $_[1]->{PATH_INFO} =~ m{/$};
-            $_[0]->SUPER::locate_file($_[1]);
-        }
-        PWS->new->to_app;
-    '
-}
-
 function html2haml_file {
     file=$1
     stem=${file%.html.erb}
@@ -91,10 +94,21 @@ function minikube-token {
     kubectl describe secret -n kube-system $(kubectl get secrets -n kube-system | grep default | cut -f1 -d ' ') | grep -E '^token' | cut -f2 -d':' | tr -d '\t' | tr -d " "
 }
 
-function ackhist {
-    ack "$@" "${HOME}/.history/"
-}
-
 function dig6 {
     dig "$@" A "$@" AAAA
+}
+
+function mkcd () {
+  \mkdir -p "$1"
+  cd "$1"
+}
+
+function tmpcd () {
+  cd "$(mktemp -d)"
+  chmod -R 0700 .
+  if [[ $# -eq 1 ]]; then
+    \mkdir -p "$1"
+    cd "$1"
+    chmod -R 0700 .
+  fi
 }

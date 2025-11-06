@@ -48,10 +48,6 @@ else
     alias ll='l -l'
 fi
 
-if [ -x "$(command -v tree)" ]; then
-    alias tree='tree -C'
-fi
-
 # editor commands
 if [ -x "$(command -v zile)" ]; then
     EDITOR='zile'
@@ -104,6 +100,7 @@ alias please='sudo !!'
 # environment setup
 alias m='mise'
 alias cm='chezmoi'
+alias cmcd='cd $(chezmoi source-path)'
 
 # docker
 alias dk='docker'
@@ -124,8 +121,6 @@ alias psmem='ps auxf | sort -nr -k 4'
 alias pscpu='ps auxf | sort -nr -k 3'
 
 alias stresc='sed -r "s/\x1B\[([0-9]{1,2}(;[0-9]{1,2})?)?[m|K]//g"'
-
-alias show_path='echo $PATH | tr ":" "\n"'
 
 # yaml/json conversion
 if [ -x "$(command -v yq)" ]; then
