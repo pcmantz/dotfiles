@@ -1,5 +1,24 @@
 #!/usr/bin/env zsh
 
+# The completion system activation
+autoload -Uz compinit
+compinit
+
+# extended history size
+export HISTFILE="${XDG_STATE_HOME}/zsh/zhistory"
+
+if [[ ! -d "$(dirname $HISTFILE)" ]]; then
+  mkdir -p "$(dirname $HISTFILE)"
+fi
+
+if [[ ! -f $HISTFILE ]]; then
+  touch $HISTFILE
+fi
+
+export HISTSIZE=1000000000
+export SAVEHIST=1000000000
+setopt EXTENDED_HISTORY
+
 # Uncomment the following line to display red dots whilst waiting for completion.
 # You can also set it to another string to have that shown instead of the default red dots.
 # e.g. COMPLETION_WAITING_DOTS="%F{yellow}waiting...%f"
@@ -30,6 +49,8 @@ plugins=(git colored-man-pages colorize pip python brew macos)
 
 # export ARCHFLAGS="-arch x86_64"
 
+alias reload="source ${ZDOTDIR}/.zshrc"
+
 function source_if_exists() {
   file=$1
   if [ -f "$file" ]; then
@@ -45,4 +66,6 @@ fi
 source_if_exists "${HOME}/.sh_aliases"
 source_if_exists "${HOME}/.sh_functions"
 
-source_if_exists "${HOME}/.zshrc.local"
+for src in ${ZDOTDIR}/rc.d/* ; do
+  source $src
+done
