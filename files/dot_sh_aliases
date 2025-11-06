@@ -104,7 +104,11 @@ alias cmcd='cd $(chezmoi source-path)'
 
 # docker
 alias dk='docker'
-alias dkc='docker-compose'
+if [ -x "$(command -v docker-compose)" ]; then
+    alias dkc='docker-compose'
+else
+    alias dkc='docker compose'
+fi
 
 # kubernetes
 alias mk='minikube'
