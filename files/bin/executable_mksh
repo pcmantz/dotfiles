@@ -1,23 +1,28 @@
 #!/usr/bin/env bash
+
 set -e
 set -u
 set -o pipefail
+
+FILE=$1
 
 if [ ! $# -eq 1 ]; then
   echo 'mksh takes one argument' 1>&2
   exit 1
 elif [ -e "$1" ]; then
-  echo "$1 already exists" 1>&2
+  echo "${FILE} already exists" 1>&2
   exit 1
 fi
 
-echo '#!/usr/bin/env bash
+cat <<EOF > "${FILE}"
+#!/usr/bin/env bash
+
 set -e
 set -u
 set -o pipefail
 
-' > "$1"
+EOF
 
-chmod u+x "$1"
+chmod u+x "${FILE}"
 
-"$EDITOR" "$1"
+"${EDITOR}" "${FILE}"

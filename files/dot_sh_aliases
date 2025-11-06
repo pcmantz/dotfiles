@@ -127,8 +127,6 @@ alias stresc='sed -r "s/\x1B\[([0-9]{1,2}(;[0-9]{1,2})?)?[m|K]//g"'
 
 alias show_path='echo $PATH | tr ":" "\n"'
 
-alias add-all-ssh-keys='ssh-add $(ack -l "\-\-\-\-\-BEGIN .* PRIVATE KEY\-\-\-\-\-" ~/.ssh )'
-
 # yaml/json conversion
 if [ -x "$(command -v yq)" ]; then
     alias json2xml='yq -p json -o xml -P . '

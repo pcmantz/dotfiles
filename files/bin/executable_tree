@@ -1,0 +1,18 @@
+#!/usr/bin/env bash
+
+set -e
+set -u
+set -o pipefail
+
+if [[ -x "$(command -v lsd)" ]]; then
+    TREE="lsd --tree"
+elif [[ -x "$(command -v eza)" ]]; then
+    TREE="eza --tree"
+elif [[ -x "$(command -v tree)" ]]; then
+    TREE="tree -C"
+else
+    echo "Error: no suitable tree command found."
+    exit 1
+fi
+
+${TREE} "$@"
