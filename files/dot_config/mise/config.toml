@@ -9,6 +9,7 @@
 deno = "latest"
 elixir = "latest"
 erlang = "latest"
+fnox = "latest"
 nodejs = "latest"
 perl = "latest"
 ruby = "latest"
