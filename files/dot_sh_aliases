@@ -48,6 +48,29 @@ else
     alias ll='l -l'
 fi
 
+# pager
+if [ -x "$(command -v batcat)" ]; then
+    alias bat='batcat'
+fi
+
+if [ -x "$(command -v bat)" ]; then
+    alias less='bat --paging=always'
+    alias cat='bat --plain --paging=never'
+    PAGER=less
+else
+    PAGER='less -r'
+fi
+export PAGER
+
+alias bathelp='bat --plain --language=help'
+help() {
+    "$@" --help 2>&1 | bathelp
+}
+
+if [ -x "$(command -v tree)" ]; then
+    alias tree='tree -C'
+fi
+
 # editor commands
 if [ -x "$(command -v zile)" ]; then
     EDITOR='zile'
@@ -58,15 +81,6 @@ else
 fi
 export EDITOR
 
-# pager
-if [ -x "$(command -v bat)" ]; then
-    # Apparently this now causes buffer overflow problems
-    # export PAGER='bat'
-
-    export PAGER='less -r'
-else
-    export PAGER='less -r'
-fi
 
 # tealdeer/tldr
 if [ -x "$(command -v tealdeer)" ]; then
@@ -113,6 +127,8 @@ fi
 # kubernetes
 alias mk='minikube'
 alias kc='kubectl'
+
+alias fdx="fd --extension"
 
 # OS X
 alias bs='brew services'
