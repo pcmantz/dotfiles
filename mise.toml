@@ -1,0 +1,13 @@
+# mise.toml
+
+[tools]
+chezmoi = "latest"
+hk = "latest"
+
+[tasks.deploy]
+description = "Deploy the configuration in this repository."
+run = '''
+  #!/usr/bin/env bash
+
+  chezmoi apply --init
+'''

@@ -35,16 +35,19 @@
     db = default-branch
 
     # basic command shortcuts
-    st  = status
-    co  = checkout
     br  = branch
     fp  = format-patch
     rmt = remote
+    st  = status
 
     # add shortcuts
     a  = add
     ap = add --patch
     ai = add --interactive
+
+    # checkout shortcuts
+    co  = checkout
+    cpd = "!sh -c 'git checkout $(git default-branch) && git pull origin'"
 
     # commit shortcuts
     ci = commit
@@ -98,6 +101,7 @@
         echo "Pruning branches that are already merged into $branch..."; \
         git remote prune origin && git branch --merged "$branch" | grep --color=auto --exclude-dir={.bzr,.cvs,.git,.hg,.svn} -v " $branch" | xargs -n 1 git branch -d; \
     }; f"
+    short-hash = "!f() { git rev-parse --short ${1:-HEAD}; }; f"
 
 [merge]
     conflictstyle = diff3
@@ -112,11 +116,11 @@
 [transfer]
   fsckobjects = true
 
-
-# Local Variables:
-# mode: conf-unix
-# End:
 [magit]
     hideCampaign = true
 [init]
     defaultBranch = main
+
+# Local Variables:
+# mode: conf-unix
+# End:
