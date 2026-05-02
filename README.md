@@ -4,7 +4,7 @@ Dotfiles of miscellaneous tools I have used over time.
 
 ## How to Install
 
-``` bash
+```bash
 # Bootstrap mise-en-place
 curl https://mise.run | sh
 

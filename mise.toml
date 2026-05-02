@@ -3,6 +3,7 @@
 [tools]
 chezmoi = "latest"
 hk = "latest"
+shfmt = "latest"
 
 [tasks.deploy]
 description = "Deploy the configuration in this repository."
