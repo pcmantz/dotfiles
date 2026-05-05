@@ -14,8 +14,28 @@ dotfiles across machines by maintaining source files here that get applied to `$
 - `mise.toml` defines tool versions (chezmoi, hk, shfmt) and a `deploy` task.
 - `hk.pkl` configures pre-commit hooks (formatting, linting).
 
+## Editing dotfiles
+
+Always edit the source files in `files/`, never the target files in `$HOME` directly.
+`chezmoi apply` overwrites `$HOME` from this repo. Changes made directly to e.g.
+`~/.gitconfig` will be lost on the next apply.
+
+To pull changes from a deployed file back into the repo, use `chezmoi add <file>`
+(e.g., `chezmoi add ~/.gitconfig`). This updates the corresponding source file in
+`files/` from the live version, enabling a bidirectional workflow when needed.
+
+To modify a dotfile, map the target path back to its source name:
+- `~/.gitconfig` -> `files/dot_gitconfig.tmpl`
+- `~/.tmux.conf` -> `files/dot_tmux.conf`
+- `~/.config/foo/bar` -> `files/dot_config/foo/bar`
+
+## Template variables
+
+`.tmpl` files use Go template syntax. The only custom data variable is `email`,
+defined in `files/.chezmoi.toml.tmpl`. Chezmoi also provides built-in variables
+like `.chezmoi.os`, `.chezmoi.hostname`, `.chezmoi.arch`, etc.
+
 ## Key conventions
 
-- Templates use chezmoi's Go template syntax with data from `.chezmoi.toml.tmpl`.
 - Pre-commit hooks auto-fix formatting via hk (prettier, shfmt, taplo, pkl, etc.).
 - Deploy with `mise run deploy` which runs `chezmoi apply --init`.
