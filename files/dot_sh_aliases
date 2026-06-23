@@ -115,6 +115,7 @@ alias please='sudo !!'
 alias m='mise'
 alias cm='chezmoi'
 alias cmcd='cd $(chezmoi source-path)'
+alias pfk="pitchfork"
 
 # docker
 alias dk='docker'
