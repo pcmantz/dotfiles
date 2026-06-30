@@ -9,24 +9,42 @@
 deno = "latest"
 elixir = "latest"
 erlang = "latest"
-fnox = "latest"
+go = "latest"
 nodejs = "latest"
 perl = "latest"
 ruby = "latest"
 rust = "latest"
 
-# tools
-bitwarden = "latest"
-bitwarden-secrets-manager = "latest"
-duckdb = "latest"
+# CLI tools
+"cargo:pitchfork-cli" = "latest"
+beads = "latest"
+hk = "latest"
+omegasort = "latest"
 shellcheck = "latest"
-sqlite = "latest"
+shfmt = "latest"
 taplo = "latest"
 usage = "latest"
-pre-commit = "latest"
+
+# databases
+duckdb = "latest"
+sqlite = "latest"
+
+# secrets management
+bitwarden = "latest"
+bitwarden-secrets-manager = "latest"
+fnox = "latest"
+
+# AI tools
+"npm:claude-plugins" = "latest"
+"npm:skills-installer" = "latest"
+
+[tool_alias]
+
+# These do not exist as actual independent packages yet
+beads = "github:steveyegge/beads"
 
 [plugins]
 
 [settings]
 experimental = true
-idiomatic_version_file_enable_tools = ["ruby"]
+idiomatic_version_file_enable_tools = ["ruby", "elixir", "python"]
