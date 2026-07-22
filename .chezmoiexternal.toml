@@ -1,8 +1,13 @@
 # .chezmoiexternal.toml
 
-[".emacs.d"]
+{{ if eq .chezmoi.os "windows" }}
+{{ $emacsDir := "AppData/Roaming/.emacs.d" }}
+{{ else }}
+{{ $emacsDir := ".config/emacs" }}
+{{ end }}
+
+["{{ $emacsDir }}"]
 type = "git-repo"
-url = "https://gitlab.com/pcmantz/elisp.git"
+url = "https://github.com/pcmantz/elisp.git"
 exact = true
 stripComponents = 2
-refreshPeriod = "168h"
