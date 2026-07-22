@@ -59,10 +59,6 @@ function source_if_exists() {
   fi
 }
 
-if [ -d "${HOME}/bin" ]; then
-  export PATH="$HOME/bin:${PATH}"
-fi
-
 source_if_exists "${HOME}/.sh_aliases"
 source_if_exists "${HOME}/.sh_functions"
 
