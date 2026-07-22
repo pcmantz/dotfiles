@@ -1,0 +1,25 @@
+#!/usr/bin/env bash
+#
+# bookmarkletify — wrap a JS file in an IIFE and minify it into a bookmarklet URL
+#
+# Usage: bookmarkletify <file.js>
+
+set -euo pipefail
+
+if [[ $# -ne 1 ]]; then
+  echo "Usage: ${0##*/} <file.js>" >&2
+  exit 1
+fi
+
+file="$1"
+if [[ ! -f "$file" ]]; then
+  echo "${0##*/}: not a file: $file" >&2
+  exit 1
+fi
+
+printf 'javascript:'
+{
+  echo '(function(){'
+  cat "$file"
+  echo '})()'
+} | npx terser --compress --mangle --toplevel | tr -d '\n'
