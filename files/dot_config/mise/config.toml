@@ -14,12 +14,8 @@ nodejs = "latest"
 perl = "latest"
 ruby = "latest"
 rust = "latest"
-
-# CLI tools
-"cargo:pitchfork-cli" = "latest"
 beads = "latest"
 hk = "latest"
-omegasort = "latest"
 shellcheck = "latest"
 shfmt = "latest"
 taplo = "latest"
@@ -38,10 +34,10 @@ fnox = "latest"
 "npm:claude-plugins" = "latest"
 "npm:skills-installer" = "latest"
 
-[tool_alias]
+# Other tools
+pitchfork = "latest"
 
-# These do not exist as actual independent packages yet
-beads = "github:steveyegge/beads"
+[tool_alias]
 
 [plugins]
 
