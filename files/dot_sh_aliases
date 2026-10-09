@@ -14,12 +14,12 @@ if [ -x /usr/bin/dircolors ]; then
     alias egrep='egrep --color=auto'
 fi
 
-DIFF='diff'
 DIFFOPTS='-upd'
-if [ -s "$(command -v colordiff)" ]; then
-    DIFF='colordiff'
+# GNU diff and Apple/FreeBSD diff both support --color; older BSDs don't
+if command diff --color=auto /dev/null /dev/null >/dev/null 2>&1; then
+    DIFFOPTS="--color=auto ${DIFFOPTS}"
 fi
-alias diff="${DIFF} ${DIFFOPTS}"
+alias diff="diff ${DIFFOPTS}"
 
 # convenient ls aliases
 if [ -x "$(command -v lsd)" ]; then

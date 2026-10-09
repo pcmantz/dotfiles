@@ -46,8 +46,6 @@ brew "btop"
 brew "chezmoi"
 # Cross-platform make
 brew "cmake"
-# Color-highlighted diff(1) output
-brew "colordiff"
 # GNU File, Shell, and Text utilities
 brew "coreutils"
 # Load/unload environment variables based on $PWD
