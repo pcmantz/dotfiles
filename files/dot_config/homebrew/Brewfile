@@ -1,0 +1,441 @@
+tap "anomalyco/tap"
+tap "d12frosted/emacs-plus", trusted: true
+tap "gromgit/fuse"
+tap "mongodb/brew", trusted: { formulae: ["mongodb-database-tools"] }
+tap "oven-sh/bun"
+tap "theseal/ssh-askpass"
+# GNU compiler collection
+brew "gcc"
+# YAML Parser
+brew "libyaml"
+# Cryptography and SSL/TLS Toolkit
+brew "openssl@3"
+# AI pair programming in your terminal
+brew "aider"
+# Cryptographic recipes and primitives for Python
+brew "cryptography"
+# Display directories as trees (with optional color/HTML output)
+brew "tree"
+# Automate deployment, configuration, and upgrading
+brew "ansible"
+# Checks ansible playbooks for practices and behaviour
+brew "ansible-lint"
+# Automatic configure script builder
+brew "autoconf"
+# Tool for generating GNU Standards-compliant Makefiles
+brew "automake"
+# Bourne-Again SHell, a UNIX command interpreter
+brew "bash"
+# Programmable completion for Bash 3.2
+brew "bash-completion"
+# Portable Foreign Function Interface library
+brew "libffi"
+# Open-source, cross-platform JavaScript runtime environment
+brew "node"
+# Language Server for Bash
+brew "bash-language-server"
+# Clone of cat(1) with syntax highlighting and Git integration
+brew "bat"
+# Parser generator
+brew "bison"
+# Collection of portable C++ source libraries
+brew "boost"
+# Resource monitor. C++ version and continuation of bashtop and bpytop
+brew "btop"
+# Manage your dotfiles across multiple diverse machines, securely
+brew "chezmoi"
+# Cross-platform make
+brew "cmake"
+# Color-highlighted diff(1) output
+brew "colordiff"
+# GNU File, Shell, and Text utilities
+brew "coreutils"
+# Load/unload environment variables based on $PWD
+brew "direnv"
+# Programming language for highly scalable real-time systems
+brew "erlang"
+# Functional metaprogramming aware language built on Erlang VM
+brew "elixir"
+# Perl lib for reading and writing EXIF metadata
+brew "exiftool"
+# Simple, fast and user-friendly alternative to find
+brew "fd"
+# Libraries to talk to Microsoft SQL Server and Sybase databases
+brew "freetds"
+# Command-line fuzzy finder written in Go
+brew "fzf"
+# Multi-agent workspace manager
+brew "gastown"
+# GNU awk utility
+brew "gawk"
+# New file format for still image compression
+brew "jpeg-xl"
+# GNU database manager
+brew "gdbm"
+# OpenType text shaping engine
+brew "harfbuzz", link: false
+# Toolkit for developing constraint-based systems and applications
+brew "gecode"
+# GitHub command-line tool
+brew "gh"
+# Interpreter for PostScript and PDF
+brew "ghostscript"
+# Distributed revision control system
+brew "git"
+# Syntax-highlighting pager for git and diff output
+brew "git-delta"
+# Git extension for versioning large files
+brew "git-lfs"
+# GNU Privacy Guard (OpenPGP)
+brew "gnupg"
+# Package compiler and linker metadata toolkit
+brew "pkgconf"
+# Image manipulation
+brew "netpbm"
+# Library to render SVG files using Cairo
+brew "librsvg"
+# Graph visualization software from AT&T and Bell Labs
+brew "graphviz"
+# Git hook and pre-commit lint manager
+brew "hk"
+# Improved top (interactive process viewer)
+brew "htop"
+# Configurable static site generator
+brew "hugo"
+# Update of iperf: measures TCP, UDP, and SCTP bandwidth
+brew "iperf3"
+# Utility for IPMI control with kernel driver or LAN interface
+brew "ipmitool"
+# Development kit for the Java programming language
+brew "openjdk@11"
+# Schema validation and conversion based on RELAX NG
+brew "jing-trang"
+# Git-compatible distributed version control system
+brew "jj", link: false
+# Lightweight and flexible command-line JSON processor
+brew "jq"
+# Handy way to save and run project-specific commands
+brew "just"
+# JIT library for the GNU compiler collection
+brew "libgccjit"
+# Small memory footprint, flexible web-server
+brew "lighttpd"
+# Next-gen compiler infrastructure
+brew "llvm"
+# Clone of ls with colorful output, file type icons, and more
+brew "lsd"
+# List USB devices, just like the Linux lsusb command
+brew "lsusb"
+# Fly through your shell history
+brew "mcfly"
+# MirBSD Korn Shell
+brew "mksh"
+# MongoDB Shell to connect, configure, query, and work with your MongoDB database
+brew "mongosh"
+# Remote terminal application
+brew "mosh"
+# Diagnose infrastructure problems with metrics, visualizations & alarms
+brew "netdata", restart_service: :changed
+# HTTP(S) server and reverse proxy, and IMAP/POP3 proxy server
+brew "nginx"
+# Port scanning utility for large networks
+brew "nmap"
+# Send push notifications to your phone or desktop via PUT/POST
+brew "ntfy"
+# Development kit for the Java programming language
+brew "openjdk@17"
+# Cryptography and SSL/TLS Toolkit
+brew "openssl@1.1"
+# Solver for mixed integer programming and mixed integer nonlinear programming
+brew "scip"
+# Google's Operations Research tools
+brew "or-tools"
+# 7-Zip (high compression file archiver) implementation
+brew "p7zip"
+# Swiss-army knife of markup format conversion
+brew "pandoc", link: false
+# Data loading tool for PostgreSQL
+brew "pgloader"
+# General-purpose scripting language
+brew "php"
+# Draw UML diagrams
+brew "plantuml"
+# PDF rendering library (based on the xpdf-3.0 code base)
+brew "poppler"
+# Object-relational database system
+brew "postgresql@15", restart_service: :changed, link: true
+# Serves a fully RESTful API from any existing PostgreSQL database
+brew "postgrest"
+# Code formatter for JavaScript, CSS, JSON, GraphQL, Markdown, YAML
+brew "prettier"
+# Linter for prose
+brew "proselint"
+# Cross-platform application and UI framework
+brew "qt@5"
+# Persistent key-value database, with built-in net interface
+brew "redis"
+# Search tool like grep and The Silver Searcher
+brew "ripgrep"
+# Install Ruby, JRuby, Rubinius, TruffleRuby, or mruby
+brew "ruby-install"
+# Rust toolchain installer
+brew "rustup"
+# Intuitive find & replace CLI
+brew "sd"
+# 7-Zip is a file archiver with a high compression ratio
+brew "sevenzip"
+# Static analysis and lint tool, for (ba)sh scripts
+brew "shellcheck"
+# Autoformat shell script source code
+brew "shfmt"
+# CLI tool for formatting SQL
+brew "sleek"
+# SOcket CAT: netcat on steroids
+brew "socat"
+# Non-interactive SSH password auth
+brew "sshpass"
+# Cross-shell prompt for astronauts
+brew "starship"
+# Crypto and x509 Swiss-Army-Knife
+brew "step"
+# Version control system designed to be a better CVS
+brew "subversion"
+# Easiest, most secure way to use WireGuard and 2FA
+brew "tailscale", restart_service: :changed
+# Command-line tool to interact with Gitea servers
+brew "tea"
+# Very fast implementation of tldr in Rust
+brew "tealdeer"
+# Modernized, complete, self-contained TeX/LaTeX engine
+brew "tectonic"
+# Extremely fast LaTeX formatter written in Rust
+brew "tex-fmt"
+# Code-search similar to ack
+brew "the_silver_searcher"
+# Terminal multiplexer
+brew "tmux"
+# Extremely fast Python package installer and resolver, written in Rust
+brew "uv"
+# Video processing framework with simplicity in mind
+brew "vapoursynth"
+# Internet file retriever
+brew "wget"
+# Cross-platform C++ GUI toolkit
+brew "wxwidgets"
+# Command-line XML and HTML beautifier and content extractor
+brew "xq"
+# Process YAML, JSON, XML, CSV and properties documents from the CLI
+brew "yq"
+# Programming language designed for robustness, optimality, and clarity
+brew "zig"
+# Text editor development kit
+brew "zile"
+# General-purpose lossless data-compression library
+brew "zlib"
+# Shell extension to navigate your filesystem faster
+brew "zoxide"
+# UNIX shell (command interpreter)
+brew "zsh"
+# The AI coding agent built for the terminal.
+brew "anomalyco/tap/opencode", trusted: true
+# GNU Emacs text editor
+brew "d12frosted/emacs-plus/emacs-plus@32", trusted: true
+# File system client based on SSH File Transfer Protocol
+brew "gromgit/fuse/sshfs-mac", trusted: true
+# High-performance, schema-free, document-oriented database
+brew "mongodb/brew/mongodb-community", trusted: true
+# Incredibly fast JavaScript runtime, bundler, transpiler and package manager - all in one.
+brew "oven-sh/bun/bun", trusted: true
+# Passphrase dialog for use with OpenSSH in macOS
+brew "theseal/ssh-askpass/ssh-askpass", trusted: true
+# Application launcher and productivity software
+cask "alfred"
+# Tools for building Android applications
+cask "android-studio"
+# Memory training application
+cask "anki"
+# Tool to flash OS images to SD cards & USB drives
+cask "balenaetcher"
+# Online gaming platform
+cask "battle-net"
+# Desktop password and login vault
+cask "bitwarden"
+# Open source, extensible AI agent that goes beyond code suggestions
+cask "block-goose"
+# E-books management software
+cask "calibre"
+# Anthropic's official Claude AI desktop app
+cask "claude"
+# Terminal-based AI coding assistant
+cask "claude-code"
+# Tool to run Windows software
+cask "crossover"
+# Write, edit, and chat about your code with AI
+cask "cursor"
+# API documentation browser and code snippet manager
+cask "dash"
+# Voice and text chat software
+cask "discord"
+# Matrix collaboration client
+cask "element"
+# Calendar software
+cask "fantastical"
+# Web browser
+cask "firefox"
+cask "font-3270-nerd-font"
+cask "font-agave-nerd-font"
+cask "font-anonymice-nerd-font"
+cask "font-arimo-nerd-font"
+cask "font-aurulent-sans-mono-nerd-font"
+cask "font-bigblue-terminal-nerd-font"
+cask "font-bitstream-vera-sans-mono-nerd-font"
+cask "font-blex-mono-nerd-font"
+cask "font-caskaydia-cove-nerd-font"
+cask "font-code-new-roman-nerd-font"
+cask "font-cousine-nerd-font"
+cask "font-daddy-time-mono-nerd-font"
+cask "font-dejavu-sans-mono-nerd-font"
+cask "font-droid-sans-mono-nerd-font"
+cask "font-fantasque-sans-mono-nerd-font"
+cask "font-fira-code-nerd-font"
+cask "font-fira-mono-nerd-font"
+cask "font-go-mono-nerd-font"
+cask "font-gohufont-nerd-font"
+cask "font-hack-nerd-font"
+cask "font-hasklug-nerd-font"
+cask "font-heavy-data-nerd-font"
+cask "font-hurmit-nerd-font"
+cask "font-im-writing-nerd-font"
+cask "font-inconsolata-go-nerd-font"
+cask "font-inconsolata-lgc-nerd-font"
+cask "font-inconsolata-nerd-font"
+cask "font-iosevka-nerd-font"
+cask "font-jetbrains-mono-nerd-font"
+cask "font-lekton-nerd-font"
+cask "font-liberation-nerd-font"
+cask "font-m+-nerd-font"
+cask "font-meslo-lg-nerd-font"
+cask "font-monofur-nerd-font"
+cask "font-monoid-nerd-font"
+cask "font-mononoki-nerd-font"
+cask "font-noto-nerd-font"
+cask "font-opendyslexic-nerd-font"
+cask "font-overpass-nerd-font"
+cask "font-profont-nerd-font"
+cask "font-proggy-clean-tt-nerd-font"
+cask "font-roboto-mono-nerd-font"
+cask "font-sauce-code-pro-nerd-font"
+cask "font-shure-tech-mono-nerd-font"
+cask "font-space-mono-nerd-font"
+cask "font-terminess-ttf-nerd-font"
+cask "font-tinos-nerd-font"
+cask "font-ubuntu-mono-nerd-font"
+cask "font-ubuntu-nerd-font"
+cask "font-victor-mono-nerd-font"
+# Terminal emulator that uses platform-native UI and GPU acceleration
+cask "ghostty"
+# Free and open-source image editor
+cask "gimp"
+# Web browser
+cask "google-chrome"
+# Set up your HP printer
+cask "hp-easy-start"
+# Terminal emulator as alternative to Apple's Terminal app
+cask "iterm2"
+# Free cross-platform office suite, fresh version
+cask "libreoffice"
+# Code notebooks for Elixir developers
+cask "livebook"
+# Support for Logitech G gear
+cask "logitech-g-hub"
+# File system integration
+cask "macfuse"
+# Full TeX Live distribution with GUI applications
+cask "mactex"
+# Provides updates to various Microsoft products
+cask "microsoft-auto-update"
+# Email client
+cask "microsoft-outlook"
+# Meet, chat, call, and collaborate in just one place
+cask "microsoft-teams"
+# Open-source constraint modelling language and IDE
+cask "minizincide"
+# GameStream client
+cask "moonlight"
+# Cross-platform MQTT 5.0 Desktop Client
+cask "mqttx"
+# Free and open-source RSS reader
+cask "netnewswire"
+# Desktop client for the Matrix protocol
+cask "nheko"
+# Virtual machine client
+cask "omnissa-horizon-client"
+# Desktop and web interface for OpenCode AI agent
+cask "openchamber"
+# WebKit based web browser
+cask "orion"
+# PostgreSQL client
+cask "pgen"
+# Client for Proton Drive
+cask "proton-drive"
+# Client for Proton Mail and Proton Calendar
+cask "proton-mail"
+# Bridges Proton Mail to email clients supporting IMAP and SMTP protocols
+cask "proton-mail-bridge"
+# Desktop client for Proton Meet
+cask "proton-meet"
+# Desktop client for Proton Pass
+cask "proton-pass"
+# VPN client focusing on security
+cask "protonvpn"
+# Companion app for Flipper Zero devices
+cask "qflipper"
+# 3D browsing software for Second Life online virtual world
+cask "second-life-viewer"
+# Instant messaging application focusing on security
+cask "signal"
+# Team communication and collaboration software
+cask "slack"
+# Code-based music creation and performance tool
+cask "sonic-pi"
+# Music streaming service
+cask "spotify"
+# System monitor for the menu bar
+cask "stats"
+# Video game digital distribution service
+cask "steam"
+# Scientific editing platform
+cask "texmacs"
+# Web browser focusing on security
+cask "tor-browser"
+# MIDI and OSC Controller Software
+cask "touchosc"
+# Development environment
+cask "vagrant"
+# Virtualiser for x86 hardware
+cask "virtualbox"
+# Web browser with built-in email client focusing on customization and control
+cask "vivaldi"
+# Multimedia player
+cask "vlc"
+# Rust-based terminal
+cask "warp"
+# Gecko based web browser
+cask "zen"
+# Video communication and virtual meeting platform
+cask "zoom"
+vscode "jebbs.plantuml"
+vscode "ms-azuretools.vscode-docker"
+vscode "ms-ossdata.vscode-postgresql"
+vscode "tuttieee.emacs-mcx"
+go "cmd/go"
+go "cmd/gofmt"
+cargo "cargo-tarpaulin"
+uv "gcalcli"
+npm "@playwright/mcp"
+npm "@zed-industries/claude-code-acp"
+npm "axios"
+npm "corepack"
+npm "express"
+npm "opencode-with-claude"
+npm "terser"
