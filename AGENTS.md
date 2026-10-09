@@ -7,7 +7,7 @@ dotfiles across machines by maintaining source files here that get applied to `$
 
 - `.chezmoiroot` points to `files/` as the chezmoi source directory.
 - `files/` contains all managed dotfiles using chezmoi naming conventions:
-  - `dot_` prefix maps to `.` (e.g., `dot_gitconfig.tmpl` -> `~/.gitconfig`)
+  - `dot_` prefix maps to `.` (e.g., `dot_zshenv` -> `~/.zshenv`)
   - `.tmpl` suffix indicates Go template files (rendered with chezmoi data)
   - `bin/` maps to `~/bin/`
   - `dot_config/` maps to `~/.config/`
@@ -18,15 +18,15 @@ dotfiles across machines by maintaining source files here that get applied to `$
 
 Always edit the source files in `files/`, never the target files in `$HOME` directly.
 `chezmoi apply` overwrites `$HOME` from this repo. Changes made directly to e.g.
-`~/.gitconfig` will be lost on the next apply.
+`~/.config/git/config` will be lost on the next apply.
 
 To pull changes from a deployed file back into the repo, use `chezmoi add <file>`
-(e.g., `chezmoi add ~/.gitconfig`). This updates the corresponding source file in
+(e.g., `chezmoi add ~/.config/git/config`). This updates the corresponding source file in
 `files/` from the live version, enabling a bidirectional workflow when needed.
 
 To modify a dotfile, map the target path back to its source name:
-- `~/.gitconfig` -> `files/dot_gitconfig.tmpl`
-- `~/.tmux.conf` -> `files/dot_tmux.conf`
+- `~/.zshenv` -> `files/dot_zshenv`
+- `~/.config/git/config` -> `files/dot_config/git/config.tmpl`
 - `~/.config/foo/bar` -> `files/dot_config/foo/bar`
 
 ## Template variables

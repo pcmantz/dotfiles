@@ -16,6 +16,9 @@ notes.org
 # Seriously
 .DS_Store
 
+# Claude Code per-project local settings
+**/.claude/settings.local.json
+
 # Local Variables:
 # mode: gitignore
 # End:
